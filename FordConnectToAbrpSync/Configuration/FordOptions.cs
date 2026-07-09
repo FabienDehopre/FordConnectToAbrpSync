@@ -1,0 +1,38 @@
+namespace FordConnectToAbrpSync.Configuration;
+
+internal sealed class FordOptions
+{
+    public const string SectionName = "Ford";
+
+    /// <summary>Base address of the FordConnect query API.</summary>
+    public string BaseUrl { get; set; } = "https://api.vehicle.ford.com/fcon-query/";
+
+    /// <summary>Telemetry endpoint, relative to <see cref="BaseUrl"/>.</summary>
+    public string TelemetryPath { get; set; } = "v1/telemetry";
+
+    /// <summary>Azure AD B2C authorize endpoint (interactive Login).</summary>
+    public string AuthorizeUrl { get; set; } =
+        "https://dah2vb2cprod.b2clogin.com/dah2vb2cprod.onmicrosoft.com/B2C_1A_FCON_AUTHORIZE/oauth2/v2.0/authorize";
+
+    /// <summary>Azure AD B2C token endpoint (code exchange + refresh).</summary>
+    public string TokenUrl { get; set; } =
+        "https://dah2vb2cprod.b2clogin.com/dah2vb2cprod.onmicrosoft.com/B2C_1A_FCON_AUTHORIZE/oauth2/v2.0/token";
+
+    /// <summary>OAuth scope requested. Must include offline_access for a refresh token.</summary>
+    public string Scope { get; set; } = "openid offline_access";
+
+    /// <summary>App registration client id. Secret — supply via user-secrets or env.</summary>
+    public string ClientId { get; set; } = string.Empty;
+
+    /// <summary>App registration client secret. Secret — supply via user-secrets or env.</summary>
+    public string ClientSecret { get; set; } = string.Empty;
+
+    /// <summary>Optional Application-Id header some Ford APIs require.</summary>
+    public string? ApplicationId { get; set; }
+
+    /// <summary>Where the encrypted refresh token is persisted.</summary>
+    public string TokenFilePath { get; set; } = "./data/ford-token.json";
+
+    /// <summary>Data Protection key ring directory.</summary>
+    public string KeysDirectory { get; set; } = "./data/keys";
+}

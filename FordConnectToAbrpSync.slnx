@@ -1,3 +1,21 @@
 <Solution>
+  <Folder Name="/docs/" />
+  <Folder Name="/docs/adr/">
+    <File Path="docs\adr\0001-ford-auth-code-flow-with-persisted-refresh-token.md" />
+    <File Path="docs\adr\0002-relay-only-on-meaningful-change-in-watched-subset.md" />
+    <File Path="docs\adr\0003-hand-written-slim-clients-for-native-aot.md" />
+    <File Path="docs\adr\0004-standard-resilience-handler-on-both-clients.md" />
+  </Folder>
+  <Folder Name="/root/">
+    <File Path=".env.example" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="compose.yaml" />
+    <File Path="CONTEXT.md" />
+    <File Path="Dockerfile" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="FordConnectToAbrpSync.Tests/FordConnectToAbrpSync.Tests.csproj" />
   <Project Path="FordConnectToAbrpSync/FordConnectToAbrpSync.csproj" />
 </Solution>

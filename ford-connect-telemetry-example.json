@@ -1,0 +1,3739 @@
+{
+  "updateTime": "2025-08-15T21:53:06.41924Z",
+  "deviceId": "c9d1a874-5f81-cC9E-B728-d349C0dad393",
+  "vehicleId": "8bfD9D7C-21Ea-efd2-F2bb-65BAd3Ffc2dF",
+  "vin": "8ILSV4AQFECBRAY",
+  "metrics": {
+    "customMetrics": {},
+    "alarmStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "DISARMED"
+    },
+    "absStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "acceleration": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "duration": 12345,
+      "value": {
+        "x": 12.2,
+        "y": 12.2,
+        "z": 12.2,
+        "sensorType": "GYRO_DATA"
+      },
+      "sampleRate": "UP_TO_1_SECOND",
+      "gpsModuleTimestamp": "2025-08-15T21:53:06.41924Z"
+    },
+    "acceleratorPedalPosition": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "duration": 400,
+      "value": 12.2
+    },
+    "ambientTemp": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "duration": 400,
+      "value": 12.2
+    },
+    "anonymityStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "antennaSource": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "PRIMARY_ANTENNA",
+      "antennaType": "CELLULAR"
+    },
+    "batteryPowerSource": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "MAIN_BATTERY"
+    },
+    "batteryStateOfCharge": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "vehicleBattery": "PRIMARY_BATTERY"
+    },
+    "batteryStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "SUFFICIENT"
+    },
+    "batteryVoltage": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "vehicleBattery": "PRIMARY_BATTERY"
+    },
+    "brakeLightStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "brakePedalStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "brakeTorque": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "climateControl": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": {
+          "airFlow": {
+            "fanSpeed": 12.2,
+            "airVentDistributions": "FLOOR_AIR_VENT",
+            "airCirculationStatus": "FRESH_INTAKE"
+          },
+          "cabinTemperatureSetting": {
+            "measuredTemperature": 12.2,
+            "relativeTemperature": 12.2
+          },
+          "airConditionerStatus": "ON",
+          "systemControlMode": "AUTOMATIC_SYSTEM_CONTROL_MODE"
+        },
+        "vehicleOccupantRole": "UNKNOWN"
+      }
+    ],
+    "collisionMitigationBrakeStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "BRAKE_APPLIED"
+    },
+    "compassDirection": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NORTH",
+      "sampleRate": "UP_TO_1_SECOND",
+      "gpsModuleTimestamp": "2025-08-15T21:53:06.41924Z"
+    },
+    "dieselExhaustFilterAutomaticCleanStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NOT_ALLOWED"
+    },
+    "dieselExhaustFilterStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NORMAL_OPERATION",
+      "dieselExhaustFilterSystemComponent": "EXHAUST_FILTER",
+      "dieselExhaustFilterCleaning": "IN_PROGRESS"
+    },
+    "dieselExhaustFilterManualRegenerationStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "OFF"
+    },
+    "dieselExhaustFluidLevel": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "diagnosticTroubleCodes": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": {
+          "system": "BODY",
+          "sae": true,
+          "intFault": 123,
+          "subfaultFailureInt": 123,
+          "rawValue": "raw",
+          "oemData": [
+            {
+              "key": "key",
+              "value": "value"
+            }
+          ],
+          "oemValues": {}
+        }
+      }
+    ],
+    "dieselExhaustFluidLevelStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "OVER_HALF_FULL"
+    },
+    "dieselExhaustFluidLevelRangeRemaining": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "dieselExhaustFluidSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "SPEED_LIMITED"
+    },
+    "dieselExhaustFluidQualityStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "CONTAMINATED"
+    },
+    "dieselExhaustFluidLevelSpeedLimit": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "dieselParticulateFilterSootLevel": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "driverAlertnessWarningStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "driverAssistSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "doorLockStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "LOCKED",
+        "vehicleDoor": "FRONT_RIGHT",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "PASSENGER",
+        "determinationMethod": "ACTUAL"
+      }
+    ],
+    "doorStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "AJAR",
+        "vehicleDoor": "FRONT_RIGHT",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "PASSENGER"
+      }
+    ],
+    "electronicStabilityControlStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "engineCoolantTemp": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "engineOilTemp": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "engineSpeed": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 1234
+    },
+    "engineAutomaticShutdownStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NOT_TRIGGERED"
+    },
+    "engineStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON",
+      "engineType": "GASOLINE"
+    },
+    "electricMachineState": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": [
+        {
+          "controllerTemp": 12.2,
+          "current": 12.2,
+          "voltage": 12.2,
+          "speed": 12.2,
+          "status": "POWER_CONSUMPTION",
+          "temp": 12.2,
+          "torque": 12.2,
+          "id": "exampleId"
+        }
+      ]
+    },
+    "evBatteryCellStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "id",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": {
+        "minTemp": {
+          "id": "id",
+          "temperature": 12.2
+        },
+        "maxTemp": {
+          "id": "id",
+          "temperature": 12.2
+        },
+        "minVoltage": {
+          "id": "id",
+          "voltage": 12.2
+        },
+        "maxVoltage": {
+          "id": "id",
+          "voltage": 12.2
+        }
+      }
+    },
+    "evBatteryChargeDisplayStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NOT_READY"
+    },
+    "evBatteryChargeStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NOT_CHARGING"
+    },
+    "xevBatteryTimeToFullCharge": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evBatteryInsulatingResistance": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evBatteryLevel": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evBatteryPackageStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": {
+        "packageCount": 1234,
+        "packageMinVoltage": {
+          "packageId": "id",
+          "current": 12.2,
+          "voltage": 12.2,
+          "temp": 12.2,
+          "cellCount": 1234,
+          "probeCount": 1234
+        },
+        "packageMaxVoltage": {
+          "packageId": "id",
+          "current": 12.2,
+          "voltage": 12.2,
+          "temp": 12.2,
+          "cellCount": 1234,
+          "probeCount": 1234
+        },
+        "packageMinTemp": {
+          "packageId": "id",
+          "current": 12.2,
+          "voltage": 12.2,
+          "temp": 12.2,
+          "cellCount": 1234,
+          "probeCount": 1234
+        },
+        "packageMaxTemp": {
+          "packageId": "id",
+          "current": 12.2,
+          "voltage": 12.2,
+          "temp": 12.2,
+          "cellCount": 1234,
+          "probeCount": 1234
+        }
+      }
+    },
+    "evBatteryRange": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evBatteryTimeToTargetCharge": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evBatteryTotalCurrent": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evBatteryTotalVoltage": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "evDcPowerSourceStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NOT_OPERATING"
+    },
+    "evOperationMode": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "FUEL"
+    },
+    "evPlugChargerStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "forwardCollisionAudioWarningStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "forwardCollisionWarningSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "fuelEconomy": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "fuelLevel": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "fuelRange": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "fuelVolume": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "gearLeverPosition": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "PARK"
+    },
+    "handsOffWheelWarningStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ACTIVE",
+      "handsOffWheelVisualWarning": "ON",
+      "handsOffWheelAudioWarning": "ON"
+    },
+    "heading": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": {
+        "heading": 12.2,
+        "uncertainty": 12.2,
+        "detectionType": "UNKNOWN"
+      },
+      "sampleRate": "UP_TO_1_SECOND",
+      "gpsModuleTimestamp": "2025-08-15T21:53:06.41924Z"
+    },
+    "hoodStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "AJAR"
+    },
+    "hybridVehicleModeStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "ignitionStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "impactStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "indicators": {
+      "adaptiveCruiseControl": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "airFilterMinder": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "airSuspensionRideControlFault": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "allWheelDriveDisabled": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "antiTheft": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "antilockBrake": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "blindSpotDetection": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "brakeWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "chargeSystemFault": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "checkFuelCap": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "checkFuelFillInlet": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "checkFuelFilter": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dcTempWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dcWarningStatus": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselEngineIdleShutdown": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselEngineWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselExhaustFluidLow": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselExhaustFluidSystemFault": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselExhaustOverTemp": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselExhaustFluidQuality": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselFilterRegeneration": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselParticulateFilter": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "dieselPreHeat": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "electricTrailerBrakeConnection": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "engineCoolantOverTemp": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattCellMaxVoltWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattCellMinVoltWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattChargeEnergyStorageWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattHighLevelWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattHighTempWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattInsulationResistWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattJumpLevelWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattLowLevelWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattMaxVoltVehEnergyWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattMinVoltVehEnergyWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattOverChargeWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattPoorCellWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "evBattTempDiffWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "fastenSeatBeltWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "forwardCollisionWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "fuelDoorOpen": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "hevHazard": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "hillDescentControlFault": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "hillStartAssistWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "hvInterlockingStatusWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "laneKeepingAid": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "lightingSystemFailure": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "lowEngineOilPressure": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "lowFuel": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "lowWasherFluid": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "malfunctionIndicator": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "motorControllerTempWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "parkAidMalfunction": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "passiveEntryPassiveStart": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "powertrainMalfunction": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "restraintsIndicatorWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "serviceSteering": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "startStopEngineWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "tractionControlDisabled": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "tractionControlActive": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "tractionControlEvent": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "tractionMotorTempWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "tirePressureMonitorSystemWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "ureaWarning": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      },
+      "waterInFuel": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": true,
+        "diagnosticTroubleCodes": [
+          {
+            "updateTime": "2025-08-15T21:53:06.41924Z",
+            "oemCorrelationId": "9999",
+            "tags": {
+              "KEY": "VALUE"
+            },
+            "value": {
+              "system": "BODY",
+              "sae": true,
+              "intFault": 123,
+              "subfaultFailureInt": 123,
+              "rawValue": "raw",
+              "oemData": [
+                {
+                  "key": "key",
+                  "value": "value"
+                }
+              ],
+              "oemValues": {}
+            }
+          }
+        ],
+        "additionalInfo": "additional info"
+      }
+    },
+    "outsideTemperature": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "yawRate": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "gpsModuleTimestamp": "2025-08-15T21:53:06.41924Z"
+    },
+    "windowStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": {
+          "doubleRange": {
+            "lowerBound": 0,
+            "upperBound": 400
+          },
+          "intRange": {
+            "lowerBound": 0,
+            "upperBound": 400
+          }
+        },
+        "vehicleWindow": "FRONT_RIGHT",
+        "vehicleOccupantRole": "DRIVER",
+        "vehicleSide": "DRIVER"
+      }
+    ],
+    "wheelTorqueStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "wheelRotationSpeed": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": 12.2,
+        "wheelPosition": "FRONT_RIGHT"
+      }
+    ],
+    "waterInFuelStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "DOES_NOT_CONTAIN_WATER",
+      "engineType": "GASOLINE"
+    },
+    "upfitterDigitalLowOutputStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "ON",
+        "upfitterPortId": "upfitterId"
+      }
+    ],
+    "upfitterDigitalInputStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "ON",
+        "upfitterPortId": "upfitterId"
+      }
+    ],
+    "upfitterDigitalHighOutputStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "ON",
+        "upfitterPortId": "upfitterId"
+      }
+    ],
+    "upfitterAnalogInputVoltages": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": 12.2,
+        "upfitterPortId": "upfitterPortId"
+      }
+    ],
+    "tripMaximumSpeed": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "tripFuelConsumedIdle": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "tripFuelConsumed": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "tripDistanceAccumulated": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "transmissionGearPosition": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "PARK"
+    },
+    "trailerSwayStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "tractionControlStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON",
+      "tractionControlBrake": "ON",
+      "tractionControlPowertrain": "ON"
+    },
+    "totalEngineTimeIdle": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "totalEngineTime": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "tirePressureStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "NORMAL",
+        "vehicleWheel": "FRONT_RIGHT"
+      }
+    ],
+    "tirePressure": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": 35.5,
+        "vehicleWheel": "FRONT_RIGHT",
+        "wheelPlacardFront": 12.2,
+        "wheelPlacardRear": 12.2
+      }
+    ],
+    "tirePressureSystemStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "NOT_TRAINED",
+        "vehicleWheel": "FRONT_RIGHT"
+      }
+    ],
+    "stopStartModeStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "seatOccupancyStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "UNKNOWN",
+        "positionRow": 1,
+        "positionSeat": 1,
+        "vehicleOccupantRole": "UNKNOWN"
+      }
+    ],
+    "seatBeltStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "UNKNOWN",
+        "positionRow": 1,
+        "positionSeat": 1,
+        "vehicleOccupantRole": "UNKNOWN"
+      }
+    ],
+    "remoteStartCountdownTimer": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "powerTakeOffStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "position": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": {
+        "location": {
+          "lat": 12.2,
+          "lon": 12.2,
+          "alt": 12.2
+        },
+        "gpsDimension": "NONE",
+        "gpsCoordinateMethod": "ACTUAL",
+        "gpsClock": "2025-08-15T21:53:06.41924Z",
+        "pdop": 123,
+        "hdop": 123,
+        "vdop": 123,
+        "gdop": 123.4
+      },
+      "sampleRate": "UNKNOWN",
+      "gpsModuleTimestamp": "2025-08-15T21:53:06.41924Z"
+    },
+    "parkingBrakeStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON",
+      "parkingBrakeType": "MECHANICAL"
+    },
+    "oilLifeRemaining": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "odometer": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "speed": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "sampleRate": "UNKNOWN",
+      "gpsModuleTimestamp": "2025-08-15T21:53:06.41924Z"
+    },
+    "lowSpeedCollisionMitigationStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON"
+    },
+    "lowSpeedCollisionMitigationSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "rearCrossWarningSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "configurations": {
+      "remoteStartRunDurationSetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": 12.2,
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "vehicleControlPolicy": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": {
+          "policyScope": "FACTORY_RESET",
+          "policyPermission": "ALLOWED",
+          "remainingDurationSeconds": 10
+        },
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "forwardCollisionWarningSensitivitySetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": "LOW",
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "xevBatteryTargetStateOfChargeSetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": 12.2,
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "xevBatteryTargetRangeSetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": 12.2,
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "automaticSoftwareUpdateNotificationOptInSetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": "ON",
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "automaticSoftwareUpdateOptInSetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "value": "ON",
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "automaticSoftwareUpdateScheduleSetting": {
+        "updateTime": "2026-07-09T07:15:09.628Z",
+        "value": {
+          "scheduleType": "NONE",
+          "oneTimeSchedule": {
+            "dateAndTime": "2025-08-15T21:53:06.41924Z",
+            "dayOfWeekAndTime": {
+              "dayOfWeek": "MONDAY",
+              "timeOfDay": "01:00"
+            }
+          },
+          "dailySchedule": "01:00:00",
+          "weeklySchedule": {
+            "dayOfWeek": "MONDAY",
+            "timeOfDay": "01:00"
+          },
+          "multipleWeeklySchedules": {
+            "dayOfWeekAndTime": [
+              {
+                "dayOfWeek": "MONDAY",
+                "timeOfDay": "01:00"
+              }
+            ]
+          },
+          "timeZone": "UTC",
+          "scheduleExecutor": "DEVICE"
+        },
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "tags": {
+          "KEY": "VALUE"
+        }
+      },
+      "xevDepartureSchedulesSetting": {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "error": {
+          "errorName": "FAULT",
+          "message": "message",
+          "errorSource": "DEVICE"
+        },
+        "value": {
+          "departureSchedules": [
+            {
+              "scheduleId": "id",
+              "scheduleStatus": "ON",
+              "schedule": {
+                "scheduleType": "NONE",
+                "oneTimeSchedule": {
+                  "dateAndTime": "2025-08-15T21:53:06.41924Z",
+                  "dayOfWeekAndTime": {
+                    "dayOfWeek": "MONDAY",
+                    "timeOfDay": "01:00"
+                  }
+                },
+                "dailySchedule": "01:00:00",
+                "weeklySchedule": {
+                  "dayOfWeek": "MONDAY",
+                  "timeOfDay": "01:00"
+                },
+                "multipleWeeklySchedules": {
+                  "dayOfWeekAndTime": [
+                    {
+                      "dayOfWeek": "MONDAY",
+                      "timeOfDay": "01:00"
+                    }
+                  ]
+                },
+                "timeZone": "UTC",
+                "scheduleExecutor": "DEVICE"
+              },
+              "desiredCabinTemperatureSetting": {
+                "measuredTemperature": 12.2,
+                "relativeTemperature": 12.2
+              },
+              "oemData": {}
+            }
+          ],
+          "departureScheduleFeatureStatus": "ON",
+          "departureLocations": [
+            {
+              "locationId": "locationId",
+              "departureSchedules": [
+                {
+                  "scheduleId": "id",
+                  "scheduleStatus": "ON",
+                  "schedule": {
+                    "scheduleType": "NONE",
+                    "oneTimeSchedule": {
+                      "dateAndTime": "2025-08-15T21:53:06.41924Z",
+                      "dayOfWeekAndTime": {
+                        "dayOfWeek": "MONDAY",
+                        "timeOfDay": "01:00"
+                      }
+                    },
+                    "dailySchedule": "01:00:00",
+                    "weeklySchedule": {
+                      "dayOfWeek": "MONDAY",
+                      "timeOfDay": "01:00"
+                    },
+                    "multipleWeeklySchedules": {
+                      "dayOfWeekAndTime": [
+                        {
+                          "dayOfWeek": "MONDAY",
+                          "timeOfDay": "01:00"
+                        }
+                      ]
+                    },
+                    "timeZone": "UTC",
+                    "scheduleExecutor": "DEVICE"
+                  },
+                  "desiredCabinTemperatureSetting": {
+                    "measuredTemperature": 12.2,
+                    "relativeTemperature": 12.2
+                  },
+                  "oemData": {}
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "vehicleLifeCycleMode": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NORMAL"
+    },
+    "laneKeepingAssistSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "batteryLoadStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "LOW_BATTERY",
+      "batteryLoadFault": "NO_OUTPUT",
+      "vehicleBattery": "PRIMARY_BATTERY"
+    },
+    "xevPlugChargerStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "remoteStartDeviceStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN"
+    },
+    "xevBatteryCapacity": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryMaximumRange": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryRange": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryStateOfCharge": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryPerformanceStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NORMAL",
+      "batteryPerformanceCause": "HIGH_TEMPERATURE"
+    },
+    "torqueAtTransmission": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "electronicStabilityControlSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "tripFuelEconomy": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "tripXevBatteryRangeRegenerated": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "tripXevBatteryChargeRegenerated": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "panicAlarmStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNDEFINED"
+    },
+    "xevBatteryEnergyRemaining": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryChargeDisplayStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "NOT_PLUGGED_IN",
+      "xevChargerPowerType": "AC",
+      "xevBatteryType": "HIGH_VOLTAGE",
+      "xevChargeStatusOrigin": "STATION",
+      "xevVehicleConditioningType": "CABIN_CONDITIONING",
+      "xevChargeOriginatorType": "USER"
+    },
+    "xevChargeStationPowerType": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "AC_BASIC"
+    },
+    "xevChargeStationCommunicationStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "FAULT"
+    },
+    "tripXevBatteryDistanceAccumulated": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2,
+      "tripProgress": "UNKNOWN"
+    },
+    "displaySystemOfMeasure": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "METRIC"
+    },
+    "doorPresenceStatus": [
+      {
+        "updateTime": "2025-08-15T21:53:06.41924Z",
+        "oemCorrelationId": "9999",
+        "tags": {
+          "KEY": "VALUE"
+        },
+        "value": "PRESENT",
+        "vehicleDoor": "FRONT_RIGHT",
+        "vehicleOccupantRole": "PASSENGER",
+        "vehicleSide": "PASSENGER"
+      }
+    ],
+    "xevBatteryTemperature": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryChargerEnergyOutput": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryChargerCurrentOutput": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryChargerVoltageOutput": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "harshCorneringMaximumAcceleration": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "engineExhaustOverheat": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ON",
+      "engineType": "GASOLINE",
+      "engineAutomaticStopReason": "EXCESSIVE_IDLE"
+    },
+    "acceleratorPedalStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "WITHOUT_DRIVING_FORCE"
+    },
+    "blindSpotWarningSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "ACTIVE",
+      "monitorCoverage": "REGULAR"
+    },
+    "bluetoothPhoneSystemStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "UNKNOWN",
+      "bluetoothPhoneCallType": "SINGLE_CALL",
+      "bluetoothPhoneCallStatus": "DIALING"
+    },
+    "vehicleAudioSource": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "SATELLITE_RADIO"
+    },
+    "inVehicleAudioSystemVolumeLevel": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "trailerLightCheckStatus": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": "COMPLETE",
+      "preconditionStatus": "PASSED",
+      "trailerLightCheckPreconditionFailureReason": "IGNITION_NOT_ON"
+    },
+    "xevBatteryActualStateOfCharge": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryIoCurrent": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryVoltage": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevTractionMotorCurrent": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevTractionMotorVoltage": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevEvseBatteryDcVoltageOutput": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevEvseBatteryDcCurrentOutput": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "harshMaximumLongitudinalAcceleration": {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "oemCorrelationId": "9999",
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": 12.2
+    },
+    "xevBatteryChargeTransferReason": {},
+    "transmissionOilTemperature": {},
+    "upfitterPwmHbridgeOutputDutyCycleTarget": {},
+    "upfitterPwmHighOutputDutyCycleTarget": {},
+    "upfitterPwmLowOutputDutyCycleTarget": {},
+    "indicatorLight": {}
+  },
+  "geofenceEvents": [
+    {
+      "updateTime": "2025-08-15T21:53:06.41924Z",
+      "name": "name",
+      "id": "id",
+      "metric": {
+        "position": {
+          "value": {
+            "location": {
+              "lat": 12.2,
+              "lon": 12.2,
+              "alt": 12.2
+            },
+            "gpsDimension": "NONE",
+            "gpsCoordinateMethod": "ACTUAL",
+            "gpsClock": "2025-08-15T21:53:06.41924Z",
+            "pdop": 123,
+            "hdop": 123,
+            "vdop": 123,
+            "gdop": 123.4
+          }
+        }
+      },
+      "tags": {
+        "KEY": "VALUE"
+      },
+      "value": {
+        "type": "type",
+        "triggerType": "triggerType"
+      }
+    }
+  ],
+  "geofenceState": {
+    "updateTime": "2025-08-15T21:53:06.41924Z",
+    "geofences": [
+      {
+        "name": "name",
+        "id": "00000000-1111-1111-4444-333333333333",
+        "tags": {
+          "KEY": "VALUE"
+        }
+      }
+    ]
+  }
+}
