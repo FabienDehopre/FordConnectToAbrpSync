@@ -14,17 +14,17 @@ public class SyncDeciderTests
         double? soc = 60, double? lat = 50.0, double? lon = 4.0,
         double? power = null, double? speed = null,
         bool? charging = null, bool? dcfc = null, bool? parked = null) => new()
-    {
-        Utc = 1,
-        Soc = soc,
-        Lat = lat,
-        Lon = lon,
-        Power = power,
-        Speed = speed,
-        IsCharging = charging,
-        IsDcfc = dcfc,
-        IsParked = parked,
-    };
+        {
+            Utc = 1,
+            Soc = soc,
+            Lat = lat,
+            Lon = lon,
+            Power = power,
+            Speed = speed,
+            IsCharging = charging,
+            IsDcfc = dcfc,
+            IsParked = parked,
+        };
 
     [Test]
     public async Task Decide_FirstSnapshot_Relays()

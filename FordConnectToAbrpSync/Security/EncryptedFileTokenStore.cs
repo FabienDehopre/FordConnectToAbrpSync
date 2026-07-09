@@ -10,18 +10,12 @@ namespace FordConnectToAbrpSync.Security;
 /// JSON file, encrypted at rest with ASP.NET Data Protection and written
 /// atomically (temp file + move) so a crash mid-write can't corrupt it.
 /// </summary>
-internal sealed class EncryptedFileTokenStore : ITokenStore
+internal sealed class EncryptedFileTokenStore(string filePath, IDataProtectionProvider protectionProvider) : ITokenStore
 {
     private const string Purpose = "FordConnectToAbrpSync.FordRefreshToken.v1";
 
-    private readonly string _filePath;
-    private readonly IDataProtector _protector;
-
-    public EncryptedFileTokenStore(string filePath, IDataProtectionProvider protectionProvider)
-    {
-        _filePath = filePath;
-        _protector = protectionProvider.CreateProtector(Purpose);
-    }
+    private readonly string _filePath = filePath;
+    private readonly IDataProtector _protector = protectionProvider.CreateProtector(Purpose);
 
     public StoredToken? Load()
     {
