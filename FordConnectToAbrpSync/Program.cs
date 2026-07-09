@@ -7,11 +7,21 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 var builder = Host.CreateApplicationBuilder(args);
 
 var isLogin = args.Length > 0 && string.Equals(args[0], "login", StringComparison.OrdinalIgnoreCase);
+var isTest = args.Length > 0 && string.Equals(args[0], "test", StringComparison.OrdinalIgnoreCase);
+
+// The test command emits raw JSON to stdout for piping (e.g. to jq), so keep
+// stdout clean by sending all console logs to stderr.
+if (isTest)
+{
+    builder.Logging.ClearProviders();
+    builder.Logging.AddConsole(o => o.LogToStandardErrorThreshold = LogLevel.Trace);
+}
 
 // --- Options ---------------------------------------------------------------
 builder.Services.Configure<SyncOptions>(builder.Configuration.GetSection(SyncOptions.SectionName));
@@ -37,6 +47,7 @@ builder.Services.AddSingleton<SyncDecider>();
 builder.Services.AddSingleton<FordTokenService>();
 builder.Services.AddTransient<FordAuthenticationHandler>();
 builder.Services.AddTransient<LoginCommand>();
+builder.Services.AddTransient<TestCommand>();
 
 // Token endpoint client: resilience only, NO bearer handler (avoids recursion).
 builder.Services.AddHttpClient<FordAuthClient>()
@@ -55,7 +66,7 @@ builder.Services.AddHttpClient<AbrpClient>(client => client.BaseAddress = new Ur
     .AddStandardResilienceHandler(builder.Configuration.GetSection("Resilience:Abrp"));
 
 // --- Run vs Login ----------------------------------------------------------
-if (!isLogin)
+if (!isLogin && !isTest)
 {
     builder.Services.AddHostedService<SyncWorker>();
 }
@@ -66,6 +77,12 @@ if (isLogin)
 {
     var login = host.Services.GetRequiredService<LoginCommand>();
     return await login.RunAsync(CancellationToken.None);
+}
+
+if (isTest)
+{
+    var test = host.Services.GetRequiredService<TestCommand>();
+    return await test.RunAsync(CancellationToken.None);
 }
 
 host.Run();
