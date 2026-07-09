@@ -11,6 +11,11 @@
     <File Path="docs\adr\0003-hand-written-slim-clients-for-native-aot.md" />
     <File Path="docs\adr\0004-standard-resilience-handler-on-both-clients.md" />
   </Folder>
+  <Folder Name="/docs/ford-connect/">
+    <File Path="docs\ford-connect\FordConnect-2.0.postman_collection.json" />
+    <File Path="docs\ford-connect\openapi.json" />
+    <File Path="docs\ford-connect\telemetry-example.json" />
+  </Folder>
   <Folder Name="/root/">
     <File Path=".env.example" />
     <File Path=".gitattributes" />
