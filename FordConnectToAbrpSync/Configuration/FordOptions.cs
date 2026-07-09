@@ -21,6 +21,9 @@ internal sealed class FordOptions
     /// <summary>OAuth scope requested. Must include offline_access for a refresh token.</summary>
     public string Scope { get; set; } = "openid offline_access";
 
+    /// <summary>Loopback port the interactive Login listens on for the OAuth redirect.</summary>
+    public int LoopbackPort { get; set; } = 19579;
+
     /// <summary>App registration client id. Secret — supply via user-secrets or env.</summary>
     public string ClientId { get; set; } = string.Empty;
 

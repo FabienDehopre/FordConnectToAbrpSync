@@ -30,8 +30,7 @@ internal sealed class LoginCommand(
             return 1;
         }
 
-        var port = GetFreeLoopbackPort();
-        var redirectUri = $"http://localhost:{port}/";
+        var redirectUri = $"http://localhost:{_options.LoopbackPort}/";
         var verifier = CreateCodeVerifier();
         var challenge = CreateCodeChallenge(verifier);
         var state = CreateCodeVerifier();
@@ -120,15 +119,6 @@ internal sealed class LoginCommand(
         context.Response.Close();
 
         return (code, state);
-    }
-
-    private static int GetFreeLoopbackPort()
-    {
-        using var socket = new System.Net.Sockets.TcpListener(IPAddress.Loopback, 0);
-        socket.Start();
-        var port = ((IPEndPoint)socket.LocalEndpoint).Port;
-        socket.Stop();
-        return port;
     }
 
     private static string CreateCodeVerifier() => Base64Url(RandomNumberGenerator.GetBytes(32));
