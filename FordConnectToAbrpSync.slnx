@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\ci.yml" />
+  </Folder>
   <Folder Name="/docs/" />
   <Folder Name="/docs/adr/">
     <File Path="docs\adr\0001-ford-auth-code-flow-with-persisted-refresh-token.md" />
