@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/.github/" />
   <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\autofix.yml" />
     <File Path=".github\workflows\ci.yml" />
   </Folder>
   <Folder Name="/docs/" />
