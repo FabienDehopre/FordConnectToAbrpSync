@@ -480,3 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Runtime data: encrypted refresh token + Data Protection key ring
+/data/

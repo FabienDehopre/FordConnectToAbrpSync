@@ -1,0 +1,16 @@
+services:
+  fordsync:
+    build: .
+    image: fordconnecttoabrpsync
+    container_name: fordsync
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+    environment:
+      - Ford__ClientId=${FORD_CLIENT_ID}
+      - Ford__ClientSecret=${FORD_CLIENT_SECRET}
+      - Abrp__ApiKey=${ABRP_API_KEY}
+      - Abrp__Token=${ABRP_TOKEN}
+      # Optional overrides:
+      # - Sync__Interval=00:00:30
+      # - Ford__ApplicationId=your-application-id

@@ -6,10 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
     <PublishAot>true</PublishAot>
+    <EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
     <UserSecretsId>dotnet-FordConnectToAbrpSync-0f6700a0-e900-4ef5-8cb3-597c8606113d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="FordConnectToAbrpSync.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="10.0.9" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="10.7.0" />
   </ItemGroup>
 </Project>

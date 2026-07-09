@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/.vs/
+data/
+.git/
+.github/
+.claude/
+.agents/
+*.md
+docs/
+FordConnectToAbrpSync.Tests/
