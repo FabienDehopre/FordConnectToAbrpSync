@@ -30,8 +30,16 @@ internal sealed class LoginCommand(
             return 1;
         }
 
-        var port = GetFreeLoopbackPort();
-        var redirectUri = $"http://localhost:{port}/";
+        if (_options.LoopbackPort is < 1024 or > 49151)
+        {
+            logger.LogError(
+                "Ford:LoopbackPort ({Port}) is out of range. Set a value between 1024 and 49151 "
+                + "(avoid privileged ports below 1024 and the ephemeral range above 49151).",
+                _options.LoopbackPort);
+            return 1;
+        }
+
+        var redirectUri = $"http://localhost:{_options.LoopbackPort}/";
         var verifier = CreateCodeVerifier();
         var challenge = CreateCodeChallenge(verifier);
         var state = CreateCodeVerifier();
@@ -40,7 +48,20 @@ internal sealed class LoginCommand(
 
         using var listener = new HttpListener();
         listener.Prefixes.Add(redirectUri);
-        listener.Start();
+        try
+        {
+            listener.Start();
+        }
+        catch (HttpListenerException ex)
+        {
+            logger.LogError(
+                ex,
+                "Could not listen on {RedirectUri}. Port {Port} may be in use. "
+                + "Override it via Ford:LoopbackPort (e.g. Ford__LoopbackPort=12345).",
+                redirectUri,
+                _options.LoopbackPort);
+            return 1;
+        }
 
         Console.WriteLine();
         Console.WriteLine("Open this URL in your browser to authorize the app with Ford:");
@@ -120,15 +141,6 @@ internal sealed class LoginCommand(
         context.Response.Close();
 
         return (code, state);
-    }
-
-    private static int GetFreeLoopbackPort()
-    {
-        using var socket = new System.Net.Sockets.TcpListener(IPAddress.Loopback, 0);
-        socket.Start();
-        var port = ((IPEndPoint)socket.LocalEndpoint).Port;
-        socket.Stop();
-        return port;
     }
 
     private static string CreateCodeVerifier() => Base64Url(RandomNumberGenerator.GetBytes(32));
