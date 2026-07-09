@@ -88,8 +88,7 @@ headless sync.
 dotnet run --project FordConnectToAbrpSync.Tests
 ```
 
-(TUnit uses Microsoft.Testing.Platform; run the test project directly rather than
-via `dotnet test`.)
+(TUnit uses Microsoft.Testing.Platform; you can run the test project directly (as above) or via `dotnet test`.)
 
 ## Native AOT
 
