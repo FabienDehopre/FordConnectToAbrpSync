@@ -41,15 +41,52 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test --configuration Release --no-build --results-directory ./TestResults -- --report-trx
+        run: >
+          dotnet test --configuration Release --no-build --results-directory ./TestResults --
+          --report-trx
+          --coverage
+          --coverage-output coverage.xml
+          --coverage-output-format cobertura
+          --coverage-settings "${{ github.workspace }}/coverage.config"
+        env:
+          TUNIT_GITHUB_REPORTER_STYLE: collapsible
+          
+      - name: Generate coverage report
+        uses: danielpalme/ReportGenerator-GitHub-Action@049f7ec958c672fd31d5cc1cb01622dc8d2e23ab # v5
+        id: reportgenerator
+        with:
+          reports: '**/coverage.xml'
+          targetdir: ./CoverageReport
+          reporttypes: 'HtmlInline;Cobertura;MarkdownSummaryGithub'
+          tag: '${{ github.run_number }}_${{ github.run_id }}'
+          customSettings: 'minimumCoverageThresholds:lineCoverage=70'
 
       - name: Upload test results
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: test-results
           path: ./TestResults/**/*.trx
           if-no-files-found: warn
+          
+      - name: Upload coverage report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: CoverageReport
+          path: ./CoverageReport
+          
+      - name: Report .NET Coverage
+        run: gh pr comment $PR_NUMBER --body-file coveragereport/SummaryGithub.md
+        if: github.event_name == 'pull_request' && steps.reportgenerator.outcome != 'skipped'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+        
+      - name: Publish coverage in build summary
+        run: cat coveragereport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+        if: steps.reportgenerator.outcome != 'skipped'
+        
 
   aot-publish:
     name: Native AOT Publish

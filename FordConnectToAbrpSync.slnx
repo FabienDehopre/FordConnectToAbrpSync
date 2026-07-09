@@ -17,6 +17,7 @@
     <File Path=".gitignore" />
     <File Path="compose.yaml" />
     <File Path="CONTEXT.md" />
+    <File Path="coverage.config" />
     <File Path="Dockerfile" />
     <File Path="global.json" />
     <File Path="README.md" />
