@@ -10,16 +10,19 @@ internal sealed class FordOptions
     /// <summary>Telemetry endpoint, relative to <see cref="BaseUrl"/>.</summary>
     public string TelemetryPath { get; set; } = "v1/telemetry";
 
-    /// <summary>Azure AD B2C authorize endpoint (interactive Login).</summary>
+    /// <summary>Ford's public authorize-init proxy in front of Azure AD B2C (interactive Login).</summary>
     public string AuthorizeUrl { get; set; } =
-        "https://dah2vb2cprod.b2clogin.com/dah2vb2cprod.onmicrosoft.com/B2C_1A_FCON_AUTHORIZE/oauth2/v2.0/authorize";
+        "https://api.vehicle.ford.com/fcon-public/v1/auth/init";
 
-    /// <summary>Azure AD B2C token endpoint (code exchange + refresh).</summary>
+    /// <summary>Azure AD B2C token endpoint (code exchange + refresh), with the B2C policy as the ?p= query.</summary>
     public string TokenUrl { get; set; } =
-        "https://dah2vb2cprod.b2clogin.com/dah2vb2cprod.onmicrosoft.com/B2C_1A_FCON_AUTHORIZE/oauth2/v2.0/token";
+        "https://api.vehicle.ford.com/dah2vb2cprod.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1A_FCON_AUTHORIZE";
 
-    /// <summary>OAuth scope requested. Must include offline_access for a refresh token.</summary>
-    public string Scope { get; set; } = "openid offline_access";
+    /// <summary>
+    /// OAuth scope for the token endpoint. Leave empty to use Ford's expected
+    /// "{ClientId} offline_access openid"; offline_access is required for a refresh token.
+    /// </summary>
+    public string Scope { get; set; } = string.Empty;
 
     /// <summary>Loopback port the interactive Login listens on for the OAuth redirect.</summary>
     public int LoopbackPort { get; set; } = 19579;

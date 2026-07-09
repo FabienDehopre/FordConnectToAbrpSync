@@ -14,8 +14,17 @@ internal sealed class FordAuthClient(HttpClient httpClient, IOptions<FordOptions
 {
     private readonly FordOptions _options = options.Value;
 
+    /// <summary>
+    /// Scope sent to the token endpoint. Ford's Azure AD B2C expects the app's own
+    /// client id as a scope, e.g. "{clientId} offline_access openid". Overridable
+    /// via Ford:Scope; falls back to the client-id form when left empty.
+    /// </summary>
+    private string EffectiveScope => string.IsNullOrWhiteSpace(_options.Scope)
+        ? $"{_options.ClientId} offline_access openid"
+        : _options.Scope;
+
     public Task<FordTokenResponse> ExchangeCodeAsync(
-        string code, string redirectUri, string codeVerifier, CancellationToken cancellationToken)
+        string code, string redirectUri, CancellationToken cancellationToken)
     {
         var form = new Dictionary<string, string>
         {
@@ -24,8 +33,7 @@ internal sealed class FordAuthClient(HttpClient httpClient, IOptions<FordOptions
             ["client_secret"] = _options.ClientSecret,
             ["code"] = code,
             ["redirect_uri"] = redirectUri,
-            ["code_verifier"] = codeVerifier,
-            ["scope"] = _options.Scope,
+            ["scope"] = EffectiveScope,
         };
         return PostTokenAsync(form, cancellationToken);
     }
@@ -38,7 +46,7 @@ internal sealed class FordAuthClient(HttpClient httpClient, IOptions<FordOptions
             ["client_id"] = _options.ClientId,
             ["client_secret"] = _options.ClientSecret,
             ["refresh_token"] = refreshToken,
-            ["scope"] = _options.Scope,
+            ["scope"] = EffectiveScope,
         };
         return PostTokenAsync(form, cancellationToken);
     }

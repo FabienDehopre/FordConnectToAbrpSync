@@ -40,11 +40,9 @@ internal sealed class LoginCommand(
         }
 
         var redirectUri = $"http://localhost:{_options.LoopbackPort}/";
-        var verifier = CreateCodeVerifier();
-        var challenge = CreateCodeChallenge(verifier);
-        var state = CreateCodeVerifier();
+        var state = CreateState();
 
-        var authorizeUrl = BuildAuthorizeUrl(redirectUri, challenge, state);
+        var authorizeUrl = BuildAuthorizeUrl(redirectUri, state);
 
         using var listener = new HttpListener();
         listener.Prefixes.Add(redirectUri);
@@ -85,7 +83,7 @@ internal sealed class LoginCommand(
             return 1;
         }
 
-        var token = await authClient.ExchangeCodeAsync(code, redirectUri, verifier, cancellationToken);
+        var token = await authClient.ExchangeCodeAsync(code, redirectUri, cancellationToken);
 
         if (string.IsNullOrEmpty(token.RefreshToken))
         {
@@ -103,17 +101,16 @@ internal sealed class LoginCommand(
         return 0;
     }
 
-    private string BuildAuthorizeUrl(string redirectUri, string challenge, string state)
+    private string BuildAuthorizeUrl(string redirectUri, string state)
     {
+        // Ford's /fcon-public/v1/auth/init proxy fronts the Azure AD B2C authorize
+        // policy: it wants only response_type/client_id/redirect_uri/state (no PKCE,
+        // no scope — those are baked into the B2C_1A_FCON_AUTHORIZE policy).
         var query = new Dictionary<string, string>
         {
-            ["client_id"] = _options.ClientId,
             ["response_type"] = "code",
+            ["client_id"] = _options.ClientId,
             ["redirect_uri"] = redirectUri,
-            ["response_mode"] = "query",
-            ["scope"] = _options.Scope,
-            ["code_challenge"] = challenge,
-            ["code_challenge_method"] = "S256",
             ["state"] = state,
         };
         var qs = string.Join('&', query.Select(kv => $"{kv.Key}={Uri.EscapeDataString(kv.Value)}"));
@@ -143,13 +140,9 @@ internal sealed class LoginCommand(
         return (code, state);
     }
 
-    private static string CreateCodeVerifier() => Base64Url(RandomNumberGenerator.GetBytes(32));
-
-    private static string CreateCodeChallenge(string verifier) =>
-        Base64Url(SHA256.HashData(Encoding.ASCII.GetBytes(verifier)));
-
-    private static string Base64Url(byte[] bytes) =>
-        Convert.ToBase64String(bytes).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+    // The auth/init proxy caps state at 16 bytes, so keep it short: 8 random bytes
+    // as 16 hex chars.
+    private static string CreateState() => Convert.ToHexString(RandomNumberGenerator.GetBytes(8)).ToLowerInvariant();
 
     private void TryOpenBrowser(string url)
     {
