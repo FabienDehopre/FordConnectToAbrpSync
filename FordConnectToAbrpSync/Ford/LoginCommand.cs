@@ -30,10 +30,11 @@ internal sealed class LoginCommand(
             return 1;
         }
 
-        if (_options.LoopbackPort is < 1 or > 65535)
+        if (_options.LoopbackPort is < 1024 or > 49151)
         {
             logger.LogError(
-                "Ford:LoopbackPort ({Port}) is out of range. Set a value between 1 and 65535.",
+                "Ford:LoopbackPort ({Port}) is out of range. Set a value between 1024 and 49151 "
+                + "(avoid privileged ports below 1024 and the ephemeral range above 49151).",
                 _options.LoopbackPort);
             return 1;
         }
