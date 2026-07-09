@@ -30,6 +30,14 @@ internal sealed class LoginCommand(
             return 1;
         }
 
+        if (_options.LoopbackPort is < 1 or > 65535)
+        {
+            logger.LogError(
+                "Ford:LoopbackPort ({Port}) is out of range. Set a value between 1 and 65535.",
+                _options.LoopbackPort);
+            return 1;
+        }
+
         var redirectUri = $"http://localhost:{_options.LoopbackPort}/";
         var verifier = CreateCodeVerifier();
         var challenge = CreateCodeChallenge(verifier);
@@ -39,7 +47,20 @@ internal sealed class LoginCommand(
 
         using var listener = new HttpListener();
         listener.Prefixes.Add(redirectUri);
-        listener.Start();
+        try
+        {
+            listener.Start();
+        }
+        catch (HttpListenerException ex)
+        {
+            logger.LogError(
+                ex,
+                "Could not listen on {RedirectUri}. Port {Port} may be in use. "
+                + "Override it via Ford:LoopbackPort (e.g. Ford__LoopbackPort=12345).",
+                redirectUri,
+                _options.LoopbackPort);
+            return 1;
+        }
 
         Console.WriteLine();
         Console.WriteLine("Open this URL in your browser to authorize the app with Ford:");
