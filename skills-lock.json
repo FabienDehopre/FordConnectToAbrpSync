@@ -97,6 +97,12 @@
       "skillPath": "skills/engineering/research/SKILL.md",
       "computedHash": "87d17f5103899fbe179b552a85485d50f2316ca5b3128f5716af7d88817533e1"
     },
+    "serilog": {
+      "source": "codewithmukesh/dotnet-claude-kit",
+      "sourceType": "github",
+      "skillPath": "skills/serilog/SKILL.md",
+      "computedHash": "a72517699d93a5d8e385ff1a73a9b0e80c57143a9678e1151a2c38ba7e7785a5"
+    },
     "setup-matt-pocock-skills": {
       "source": "mattpocock/skills",
       "sourceType": "github",
