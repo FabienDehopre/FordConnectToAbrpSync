@@ -483,3 +483,6 @@ $RECYCLE.BIN/
 
 # Runtime data: encrypted refresh token + Data Protection key ring
 /data/
+
+# Rolling log files written by the worker (Run mode)
+/logs/

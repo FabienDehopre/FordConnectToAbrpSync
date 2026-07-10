@@ -31,4 +31,7 @@ ENV Ford__TokenFilePath=/data/ford-token.json \
     DOTNET_ENVIRONMENT=Production
 VOLUME /data
 
+# Rolling log files (Run mode) are written to ./logs relative to WORKDIR.
+VOLUME /app/logs
+
 ENTRYPOINT ["./FordConnectToAbrpSync"]
