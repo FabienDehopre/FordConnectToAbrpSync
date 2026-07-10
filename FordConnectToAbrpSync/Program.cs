@@ -16,6 +16,10 @@ using Serilog.Events;
 const string OutputTemplate =
     "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff} {Level:u3}] {SourceContext}: {Message:lj} {Properties:j}{NewLine}{Exception}";
 
+// Directory for the rolling file sink (Run mode). Gitignored and absent on a
+// fresh checkout outside Docker, so it is created before the sink is wired.
+const string LogDirectory = "./logs";
+
 // Serilog is configured entirely in code (no ReadFrom.Configuration): the
 // reflection-based settings reader is RequiresDynamicCode/RequiresUnreferencedCode
 // and is incompatible with this project's Native AOT build. See ADR 0005.
@@ -58,8 +62,9 @@ try
 
         if (isRun)
         {
+            Directory.CreateDirectory(LogDirectory);
             lc.WriteTo.File(
-                path: "./logs/sync-.log",
+                path: $"{LogDirectory}/sync-.log",
                 outputTemplate: OutputTemplate,
                 rollingInterval: RollingInterval.Day,
                 retainedFileCountLimit: 31,
@@ -117,7 +122,7 @@ try
         builder.Services.AddHostedService<SyncWorker>();
     }
 
-    var host = builder.Build();
+    using var host = builder.Build();
 
     if (isLogin)
     {
@@ -145,11 +150,23 @@ finally
 }
 
 // Reads Serilog:MinimumLevel:Default as a scalar and maps it to a LogEventLevel.
-// Falls back to Information when absent or unparseable.
+// Falls back to Information when absent or unparseable; a present-but-invalid
+// value is surfaced via the bootstrap logger so the mistake is visible at startup.
 static LogEventLevel ReadMinimumLevel(IConfiguration configuration)
 {
     var raw = configuration["Serilog:MinimumLevel:Default"];
-    return Enum.TryParse<LogEventLevel>(raw, ignoreCase: true, out var level)
-        ? level
-        : LogEventLevel.Information;
+    if (Enum.TryParse<LogEventLevel>(raw, ignoreCase: true, out var level))
+    {
+        return level;
+    }
+
+    if (!string.IsNullOrWhiteSpace(raw))
+    {
+        Log.Warning(
+            "Invalid Serilog:MinimumLevel:Default {RawValue}; falling back to {FallbackLevel}",
+            raw,
+            LogEventLevel.Information);
+    }
+
+    return LogEventLevel.Information;
 }
