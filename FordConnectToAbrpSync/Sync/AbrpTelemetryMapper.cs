@@ -39,7 +39,7 @@ internal static class AbrpTelemetryMapper
             Speed = m.Speed?.Value,
             Lat = m.Position?.Value?.Location?.Lat,
             Lon = m.Position?.Value?.Location?.Lon,
-            Elevation = m.Position?.Value?.Location?.Alt,
+            Elevation = MapElevation(m),
             IsCharging = MapIsCharging(m),
             IsDcfc = MapIsDcfc(m),
             IsParked = MapIsParked(m),
@@ -52,6 +52,14 @@ internal static class AbrpTelemetryMapper
             Odometer = m.Odometer?.Value,
             Heading = m.Heading?.Value?.Heading,
         };
+    }
+
+    // Ford reports alt 0.0 when the GPS altitude is unavailable, not sea level.
+    // Treat exactly 0.0 as absent so ABRP doesn't record a bogus elevation.
+    private static double? MapElevation(FordMetrics m)
+    {
+        var alt = m.Position?.Value?.Location?.Alt;
+        return alt is null or 0.0 ? null : alt;
     }
 
     private static double? ComputePower(FordMetrics m, bool invert)

@@ -482,7 +482,8 @@ $RECYCLE.BIN/
 *.swp
 
 # Runtime data: encrypted refresh token + Data Protection key ring
-/data/
+# Not root-anchored: the app writes data/ under the project dir too.
+data/
 
 # Rolling log files written by the worker (Run mode)
-/logs/
+logs/

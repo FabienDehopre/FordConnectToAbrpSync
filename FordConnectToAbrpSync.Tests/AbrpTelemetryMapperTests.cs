@@ -172,6 +172,32 @@ public class AbrpTelemetryMapperTests
     }
 
     [Test]
+    [Arguments(0.0, null)]
+    [Arguments(120.0, 120.0)]
+    [Arguments(-5.0, -5.0)]
+    public async Task Map_Elevation_TreatsZeroAltAsAbsent(double alt, double? expected)
+    {
+        var response = new FordTelemetryResponse
+        {
+            UpdateTime = SampleTime,
+            Metrics = new FordMetrics
+            {
+                Position = new PositionMetric
+                {
+                    Value = new PositionValue
+                    {
+                        Location = new LocationValue { Lat = 50.85, Lon = 4.35, Alt = alt },
+                    },
+                },
+            },
+        };
+
+        var tlm = AbrpTelemetryMapper.Map(response);
+
+        await Assert.That(tlm.Elevation).IsEqualTo(expected);
+    }
+
+    [Test]
     public async Task Map_EmptyMetrics_LeavesOnlyUtc()
     {
         var response = new FordTelemetryResponse { UpdateTime = SampleTime };
