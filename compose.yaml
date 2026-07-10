@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./data:/data
+      - ./logs:/app/logs
     environment:
       - Ford__ClientId=${FORD_CLIENT_ID}
       - Ford__ClientSecret=${FORD_CLIENT_SECRET}
