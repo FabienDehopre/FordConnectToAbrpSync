@@ -10,6 +10,7 @@
     <File Path="docs\adr\0002-relay-only-on-meaningful-change-in-watched-subset.md" />
     <File Path="docs\adr\0003-hand-written-slim-clients-for-native-aot.md" />
     <File Path="docs\adr\0004-standard-resilience-handler-on-both-clients.md" />
+    <File Path="docs\adr\0005-serilog-configured-in-code-for-native-aot.md" />
   </Folder>
   <Folder Name="/docs/ford-connect/">
     <File Path="docs\ford-connect\FordConnect-2.0.postman_collection.json" />
