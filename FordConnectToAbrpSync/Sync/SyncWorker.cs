@@ -101,6 +101,7 @@ internal sealed class SyncWorker(
             decider.CommitRelay(telemetry);
             logger.LogInformation("Relayed telemetry to ABRP (utc={Utc}, soc={Soc}).",
                 telemetry.Utc, telemetry.Soc);
+            logger.LogDebug("Full Relayed telemetry to ABRP: {@Telemetry}", telemetry);
         }
         else
         {
