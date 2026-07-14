@@ -6,8 +6,21 @@ for live journey tracking. It only sends to ABRP when the data meaningfully
 changes, and both HTTP clients are resilient to rate limiting and transient
 errors.
 
-See [`CONTEXT.md`](./CONTEXT.md) for the domain glossary and
-[`docs/adr/`](./docs/adr) for the key design decisions.
+## What you need
+
+- A Ford vehicle with connectivity (FordPass Connect) added to your FordPass
+  account.
+- A **Ford app registration** (client id + secret) — see
+  [Ford app registration](#ford-app-registration) below.
+- An **ABRP user token** for your vehicle: in the ABRP app or website, open
+  your car's settings and use the *live data* / *generic* link option to
+  generate a token.
+- An **ABRP partner API key**, issued by [Iternio](https://www.iternio.com)
+  (the makers of ABRP) on request.
+- The [.NET 10 SDK](https://dotnet.microsoft.com/download) to build and run
+  the one-time login (Docker alone is not enough — the login must run on your
+  machine). The exact SDK version is pinned in [`global.json`](./global.json).
+- Optionally, Docker + Docker Compose to run the sync as a container.
 
 ## How it works
 
@@ -60,13 +73,17 @@ dotnet run --project FordConnectToAbrpSync -- login
 
 This opens the Ford authorize page, catches the redirect, and writes the
 encrypted refresh token to `./data/ford-token.json` (+ a Data Protection key
-ring in `./data/keys`).
+ring in `./data/keys`). You only need to repeat it if the stored refresh token
+stops working.
 
 ### 2. Run the sync
 
 ```bash
 dotnet run --project FordConnectToAbrpSync
 ```
+
+The worker logs to the console and to daily rolling files under `./logs`
+(31 days retained).
 
 ### Docker
 
@@ -77,12 +94,36 @@ dotnet run --project FordConnectToAbrpSync -- login
 docker compose up -d --build
 ```
 
-The container mounts `./data` for the token + key ring and reads secrets from
-the environment. Because the `login` flow needs an interactive browser and a
-loopback redirect, run it on the host as shown; the container only ever runs the
-headless sync.
+The `.env` names (`FORD_CLIENT_ID`, `ABRP_TOKEN`, …) are mapped onto the
+`Ford__*` / `Abrp__*` environment variables in [`compose.yaml`](./compose.yaml),
+which also shows the optional overrides.
 
-## Tests
+The container mounts `./data` for the token + key ring and `./logs` for the log
+files, and reads secrets from the environment. Because the `login` flow needs
+an interactive browser and a loopback redirect, run it on the host as shown;
+the container only ever runs the headless sync.
+
+## Troubleshooting
+
+- **Check what Ford is actually reporting**: `dotnet run --project
+  FordConnectToAbrpSync -- test` fetches one telemetry snapshot and dumps the
+  raw JSON to stdout (logs go to stderr, so the JSON stays pipeable).
+- **ABRP shows charging as driving (or vice versa)**: set
+  `Sync:InvertPowerSign` to `true` — some vehicles report the power sign
+  reversed.
+- **Nothing reaches ABRP while parked**: expected — the worker skips relays
+  when the watched values haven't changed and when Ford hasn't produced a
+  newer snapshot. Check the logs in `./logs` (or `docker compose logs -f`)
+  to see each cycle's decision.
+- **Login/auth errors**: re-run the `login` command to store a fresh refresh
+  token.
+
+## For developers
+
+See [`CONTEXT.md`](./CONTEXT.md) for the domain glossary and
+[`docs/adr/`](./docs/adr) for the key design decisions.
+
+### Tests
 
 ```bash
 dotnet run --project FordConnectToAbrpSync.Tests
@@ -90,7 +131,7 @@ dotnet run --project FordConnectToAbrpSync.Tests
 
 (TUnit uses Microsoft.Testing.Platform; you can run the test project directly (as above) or via `dotnet test`.)
 
-## Native AOT
+### Native AOT
 
 The worker publishes as a self-contained Native AOT binary
 (`PublishAot=true`). All JSON goes through a source-generated serializer context;
