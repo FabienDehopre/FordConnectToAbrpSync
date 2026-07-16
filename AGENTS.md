@@ -29,6 +29,19 @@ dotnet run --project FordConnectToAbrpSync.Tests          # run all tests
 dotnet run --project FordConnectToAbrpSync.Tests -- --treenode-filter "/*/*/SyncDeciderTests/*"  # single class
 ```
 
+### Coverage gate
+
+CI enforces a minimum line coverage (currently 55%, `minimumCoverageThresholds:lineCoverage` in `.github/workflows/ci.yml`). Rules:
+
+- **Never add tests just to move the coverage number.** Test real behavior only. `SyncWorker`, `LoginCommand`, and `TestCommand` are *deliberately* untested (glue, logging, interactive browser flow) — don't add tests there to satisfy the gate.
+- If the gate fails, first check what new untested product code shipped; propose tests only where they assert meaningful behavior, and get the plan approved before writing.
+- For HTTP-level tests, reuse `FordConnectToAbrpSync.Tests/StubHttpMessageHandler.cs` (scripted responses; captures request bodies and bearer tokens at send time).
+- When actual coverage rises well above the gate, ratchet the threshold up in a separate PR to lock in the gain.
+
+## PR workflow
+
+Fixes to a failing PR (including Renovate PRs) are pushed directly onto its branch, not opened as a new PR. Merges are squash + branch delete (`gh pr merge --squash --delete-branch`) and happen only on the maintainer's explicit go-ahead.
+
 ## Architecture
 
 Native AOT worker (`PublishAot=true`). Two rules govern edits:
