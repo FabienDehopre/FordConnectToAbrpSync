@@ -60,7 +60,7 @@ jobs:
           targetdir: ./CoverageReport
           reporttypes: 'HtmlInline;Cobertura;MarkdownSummaryGithub'
           tag: '${{ github.run_number }}_${{ github.run_id }}'
-          customSettings: 'minimumCoverageThresholds:lineCoverage=55'
+          customSettings: 'minimumCoverageThresholds:lineCoverage=70'
 
       - name: Upload test results
         if: ${{ !cancelled() }}

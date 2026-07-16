@@ -136,6 +136,21 @@ public class SyncDeciderTests
     }
 
     [Test]
+    public async Task Decide_WatchedFieldAppearsAfterNull_Relays()
+    {
+        // A field going from unknown to known (or back) is a Meaningful Change
+        // regardless of tolerance: there is no numeric distance to compare.
+        var decider = NewDecider();
+        var tlm = Tlm(soc: 60, power: null);
+        decider.Decide(T1, tlm);
+        decider.CommitRelay(tlm);
+
+        var decision = decider.Decide(T2, Tlm(soc: 60, power: 5.0));
+
+        await Assert.That(decision).IsEqualTo(SyncDecision.Relay);
+    }
+
+    [Test]
     public async Task Decide_UnwatchedFieldChange_DoesNotRelay()
     {
         // Odometer/heading/temps are not in the Watched Subset; changing only
