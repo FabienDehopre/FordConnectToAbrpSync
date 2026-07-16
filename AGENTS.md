@@ -31,7 +31,7 @@ dotnet run --project FordConnectToAbrpSync.Tests -- --treenode-filter "/*/*/Sync
 
 ### Coverage gate
 
-CI enforces a minimum line coverage (currently 55%, `minimumCoverageThresholds:lineCoverage` in `.github/workflows/ci.yml`). Rules:
+CI enforces a minimum line coverage (currently 70%, `minimumCoverageThresholds:lineCoverage` in `.github/workflows/ci.yml`). `LoginCommand`, `TestCommand`, and `Program.cs` are excluded from measurement in `coverage.config` (interactive/debug/bootstrap glue); `SyncWorker` stays in the denominator, deliberately at 0%. Rules:
 
 - **Never add tests just to move the coverage number.** Test real behavior only. `SyncWorker`, `LoginCommand`, and `TestCommand` are *deliberately* untested (glue, logging, interactive browser flow) — don't add tests there to satisfy the gate.
 - If the gate fails, first check what new untested product code shipped; propose tests only where they assert meaningful behavior, and get the plan approved before writing.
