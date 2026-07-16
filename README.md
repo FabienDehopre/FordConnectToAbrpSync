@@ -52,10 +52,12 @@ Useful non-secret overrides: `Sync:Interval` (e.g. `00:00:30`),
 
 ### Ford app registration
 
-Create a Ford app registration whose redirect URI is `http://localhost`
-(the loopback port is chosen at runtime). Authorize it against your vehicle in
-the FordPass portal. The requested scope must include `offline_access` so Ford
-issues a refresh token.
+Create a Ford app registration whose redirect URI is
+`http://localhost:19579/`. The port comes from `Ford:LoopbackPort` in
+[`appsettings.json`](./FordConnectToAbrpSync/appsettings.json) (default
+`19579`); if you override it, the registered redirect URI must match.
+Authorize the registration against your vehicle in the FordPass portal. The
+requested scope must include `offline_access` so Ford issues a refresh token.
 
 ## Running
 

@@ -11,7 +11,7 @@ namespace FordConnectToAbrpSync.Ford;
 
 /// <summary>
 /// The one-time interactive Login: opens the Ford authorize page, catches the
-/// loopback redirect, exchanges the code (PKCE) for tokens, and persists the
+/// loopback redirect, exchanges the code for tokens, and persists the
 /// refresh token to the Token Store. Run once before the headless Run.
 /// </summary>
 internal sealed class LoginCommand(
