@@ -34,4 +34,15 @@ VOLUME /data
 # Rolling log files (Run mode) are written to ./logs relative to WORKDIR.
 VOLUME /app/logs
 
+# Heartbeat file for the healthcheck subcommand (see Health/HeartbeatWriter.cs,
+# ADR 0006), written to ./heartbeat relative to WORKDIR. Not a VOLUME: it
+# carries no state worth persisting across restarts. Written once at worker
+# startup and again after every Sync Cycle, so --start-period only needs to
+# cover container/runtime startup, not a full Sync Cycle interval. Docker only
+# reports status via `docker inspect`/`docker ps` here; a plain `docker run`
+# or Compose won't restart an unhealthy container on its own (only Swarm/k8s
+# act on it).
+HEALTHCHECK --interval=60s --timeout=5s --start-period=30s --retries=3 \
+    CMD ["/app/FordConnectToAbrpSync", "healthcheck"]
+
 ENTRYPOINT ["./FordConnectToAbrpSync"]

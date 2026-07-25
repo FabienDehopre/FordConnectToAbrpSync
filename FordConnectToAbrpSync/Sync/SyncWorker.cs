@@ -1,6 +1,7 @@
 using FordConnectToAbrpSync.Abrp;
 using FordConnectToAbrpSync.Configuration;
 using FordConnectToAbrpSync.Ford;
+using FordConnectToAbrpSync.Health;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -17,16 +18,19 @@ internal sealed class SyncWorker(
     FordTelemetryClient fordClient,
     AbrpClient abrpClient,
     SyncDecider decider,
+    HeartbeatWriter heartbeat,
     IOptionsMonitor<SyncOptions> syncOptions,
     ILogger<SyncWorker> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         logger.LogInformation("Ford → ABRP sync started.");
+        TouchHeartbeatSafely();
 
         while (!stoppingToken.IsCancellationRequested)
         {
             await RunCycleSafelyAsync(stoppingToken);
+            TouchHeartbeatSafely();
 
             try
             {
@@ -36,6 +40,23 @@ internal sealed class SyncWorker(
             {
                 break;
             }
+        }
+    }
+
+    // The heartbeat records that the loop is still alive, not that the cycle
+    // succeeded — a transient Ford/ABRP outage must not restart-loop the
+    // container. A failure to write it (e.g. read-only mount) must likewise
+    // never take the host down; BackgroundService's default exception
+    // behavior stops the whole host on an unhandled exception here.
+    private void TouchHeartbeatSafely()
+    {
+        try
+        {
+            heartbeat.Touch(DateTimeOffset.UtcNow, syncOptions.CurrentValue.Interval);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to write healthcheck heartbeat.");
         }
     }
 
