@@ -25,7 +25,7 @@ dotnet build                                              # build solution
 dotnet run --project FordConnectToAbrpSync                # run the sync worker
 dotnet run --project FordConnectToAbrpSync -- login       # interactive Ford login (needs browser + loopback)
 dotnet run --project FordConnectToAbrpSync -- test        # dump one raw telemetry snapshot
-dotnet run --project FordConnectToAbrpSync -- healthcheck # Docker HEALTHCHECK subcommand; reads ./health/heartbeat
+dotnet run --project FordConnectToAbrpSync -- healthcheck # Docker HEALTHCHECK subcommand; reads ./heartbeat
 dotnet run --project FordConnectToAbrpSync.Tests          # run all tests
 dotnet run --project FordConnectToAbrpSync.Tests -- --treenode-filter "/*/*/SyncDeciderTests/*"  # single class
 ```

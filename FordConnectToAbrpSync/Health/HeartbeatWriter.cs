@@ -16,6 +16,8 @@ internal sealed class HeartbeatWriter(string path)
         }
 
         var deadline = now + (interval * 3);
-        File.WriteAllText(path, deadline.ToString("o"));
+        var tempPath = $"{path}.{Guid.NewGuid():N}.tmp";
+        File.WriteAllText(tempPath, deadline.ToString("o"));
+        File.Move(tempPath, path, overwrite: true);
     }
 }

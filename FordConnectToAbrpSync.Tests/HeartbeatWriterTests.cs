@@ -28,6 +28,25 @@ public class HeartbeatWriterTests
     }
 
     [Test]
+    public async Task Touch_LeavesNoTempFileResidue()
+    {
+        var dir = Path.Combine(Path.GetTempPath(), $"fordsync-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(dir);
+        var path = Path.Combine(dir, "heartbeat");
+        var writer = new HeartbeatWriter(path);
+        try
+        {
+            writer.Touch(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(60));
+
+            await Assert.That(Directory.GetFiles(dir)).IsEquivalentTo([path]);
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [Test]
     public async Task Touch_CreatesMissingDirectory()
     {
         var dir = Path.Combine(Path.GetTempPath(), $"fordsync-{Guid.NewGuid():N}", "nested");

@@ -5,7 +5,7 @@ ASP.NET Core), and the runtime image is `mcr.microsoft.com/dotnet/runtime-deps`
 with no `curl`/`wget`, so the usual `HEALTHCHECK CMD curl localhost/health`
 pattern doesn't apply and adding an HTTP listener or shell tooling just for
 this would cost more than it's worth. Instead, each Sync Cycle writes a
-liveness deadline (`now + 3 × Interval`) to `/app/health/heartbeat`
+liveness deadline (`now + 3 × Interval`) to `/app/heartbeat`
 (`Health/HeartbeatWriter.cs`), and `HEALTHCHECK` invokes the same published
 binary with a `healthcheck` argument (`Health/HeartbeatCheck.cs`), which reads
 that file and exits 0/1 — no new dependencies, no open port. The deadline is
