@@ -487,3 +487,6 @@ data/
 
 # Rolling log files written by the worker (Run mode)
 logs/
+
+# Healthcheck liveness deadline written by the worker each Sync Cycle (Run mode)
+heartbeat

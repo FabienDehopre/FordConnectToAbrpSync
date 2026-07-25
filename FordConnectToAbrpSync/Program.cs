@@ -1,6 +1,7 @@
 using FordConnectToAbrpSync.Abrp;
 using FordConnectToAbrpSync.Configuration;
 using FordConnectToAbrpSync.Ford;
+using FordConnectToAbrpSync.Health;
 using FordConnectToAbrpSync.Security;
 using FordConnectToAbrpSync.Sync;
 using Microsoft.AspNetCore.DataProtection;
@@ -19,6 +20,24 @@ const string OutputTemplate =
 // Directory for the rolling file sink (Run mode). Gitignored and absent on a
 // fresh checkout outside Docker, so it is created before the sink is wired.
 const string LogDirectory = "./logs";
+
+// Where the Sync Cycle loop's liveness deadline is recorded (Run mode).
+// Relative to WORKDIR, like LogDirectory — resolves to /app/heartbeat under
+// Docker for both ENTRYPOINT and HEALTHCHECK. A bare filename, not a
+// subdirectory: "./health/..." would collide case-insensitively with the
+// Health/ source folder on a local macOS checkout. Not on the /data volume:
+// it carries no state worth persisting across restarts.
+const string HeartbeatFilePath = "./heartbeat";
+
+// The healthcheck subcommand short-circuits before the host is built: no
+// Serilog, no DataProtection key ring, no HttpClients. That keeps it fast for
+// something Docker invokes every interval, and — more importantly — keeps it
+// from fighting the live worker over the file log sink (shared: false) and
+// the key ring, which it would touch if it went through isRun below.
+if (args.Length > 0 && string.Equals(args[0], "healthcheck", StringComparison.OrdinalIgnoreCase))
+{
+    return HeartbeatCheck.Run(HeartbeatFilePath, DateTimeOffset.UtcNow) ? 0 : 1;
+}
 
 // Serilog is configured entirely in code (no ReadFrom.Configuration): the
 // reflection-based settings reader is RequiresDynamicCode/RequiresUnreferencedCode
@@ -119,6 +138,7 @@ try
     // --- Run vs Login vs Test ----------------------------------------------
     if (isRun)
     {
+        builder.Services.AddSingleton(new HeartbeatWriter(HeartbeatFilePath));
         builder.Services.AddHostedService<SyncWorker>();
     }
 
