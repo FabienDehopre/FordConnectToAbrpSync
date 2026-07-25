@@ -6,13 +6,21 @@ internal static class HeartbeatCheck
 {
     public static bool Run(string path, DateTimeOffset now)
     {
-        if (!File.Exists(path))
+        string content;
+        try
+        {
+            content = File.ReadAllText(path);
+        }
+        catch (IOException)
+        {
+            return false;
+        }
+        catch (UnauthorizedAccessException)
         {
             return false;
         }
 
-        var content = File.ReadAllText(path);
-        return DateTimeOffset.TryParse(content, CultureInfo.InvariantCulture, DateTimeStyles.None, out var deadline)
+        return DateTimeOffset.TryParseExact(content, "o", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out var deadline)
             && now < deadline;
     }
 }

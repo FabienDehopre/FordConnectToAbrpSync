@@ -49,6 +49,22 @@ public class HeartbeatCheckTests
     }
 
     [Test]
+    public async Task Run_PathIsDirectory_ReturnsFalse()
+    {
+        var dir = Path.Combine(Path.GetTempPath(), $"fordsync-heartbeat-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(dir);
+        var now = new DateTimeOffset(2026, 7, 25, 12, 0, 0, TimeSpan.Zero);
+        try
+        {
+            await Assert.That(HeartbeatCheck.Run(dir, now)).IsFalse();
+        }
+        finally
+        {
+            Directory.Delete(dir);
+        }
+    }
+
+    [Test]
     public async Task Run_ContentUnparseable_ReturnsFalse()
     {
         var path = NewPath();

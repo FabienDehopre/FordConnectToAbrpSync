@@ -489,4 +489,5 @@ data/
 logs/
 
 # Healthcheck liveness deadline written by the worker each Sync Cycle (Run mode)
-heartbeat
+# heartbeat* also covers the atomic-write temp file (heartbeat.<guid>.tmp)
+heartbeat*
