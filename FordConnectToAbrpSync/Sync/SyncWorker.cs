@@ -10,31 +10,48 @@ namespace FordConnectToAbrpSync.Sync;
 
 /// <summary>
 /// The Run loop. Each Sync Cycle: fetch a Snapshot, decide, and relay on a
-/// Meaningful Change. The poll interval is read fresh every cycle, so config
-/// changes take effect without a restart. Cycles never overlap; a cycle that
-/// throws is logged and the loop survives to the next one.
+/// Meaningful Change. The wait between cycles is the normal interval, or the
+/// Idle Interval while the vehicle is Idle and no Boost Window is open; a
+/// Wake/Sleep Signal cuts the wait short. Intervals are read fresh every
+/// cycle, so config changes take effect without a restart. Cycles never
+/// overlap; a cycle that throws is logged and the loop survives to the next
+/// one.
 /// </summary>
 internal sealed class SyncWorker(
     FordTelemetryClient fordClient,
     AbrpClient abrpClient,
     SyncDecider decider,
+    SyncPacer pacer,
     HeartbeatWriter heartbeat,
     IOptionsMonitor<SyncOptions> syncOptions,
     ILogger<SyncWorker> logger) : BackgroundService
 {
+    // Until a Snapshot says otherwise, assume the vehicle is active: starting
+    // at the normal interval costs a few extra polls; starting Idle could
+    // blind the first drive after a restart for a whole Idle Interval.
+    private bool _isIdle;
+
+    private TimeSpan _lastWait = TimeSpan.Zero;
+
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         logger.LogInformation("Ford → ABRP sync started.");
-        TouchHeartbeatSafely();
+        TouchHeartbeatSafely(syncOptions.CurrentValue.Interval);
 
         while (!stoppingToken.IsCancellationRequested)
         {
             await RunCycleSafelyAsync(stoppingToken);
-            TouchHeartbeatSafely();
+
+            var wait = NextWait();
+            TouchHeartbeatSafely(wait);
 
             try
             {
-                await Task.Delay(syncOptions.CurrentValue.Interval, stoppingToken);
+                var signalled = await pacer.WaitAsync(wait, stoppingToken);
+                if (signalled)
+                {
+                    logger.LogInformation("External signal received; running a Sync Cycle now.");
+                }
             }
             catch (OperationCanceledException)
             {
@@ -43,16 +60,40 @@ internal sealed class SyncWorker(
         }
     }
 
+    // The Idle Interval only applies when the vehicle is Idle and no Boost
+    // Window is open. A failed cycle keeps the last known state, so a Ford
+    // outage while driving doesn't stretch the poll to the Idle Interval.
+    private TimeSpan NextWait()
+    {
+        var options = syncOptions.CurrentValue;
+        var idlePace = _isIdle && !pacer.IsBoosted(DateTimeOffset.UtcNow);
+        var wait = idlePace ? options.IdleInterval : options.Interval;
+
+        if (wait != _lastWait)
+        {
+            logger.LogInformation(
+                idlePace
+                    ? "Vehicle is Idle; polling every {Interval}."
+                    : "Vehicle is active; polling every {Interval}.",
+                wait);
+            _lastWait = wait;
+        }
+
+        return wait;
+    }
+
     // The heartbeat records that the loop is still alive, not that the cycle
     // succeeded — a transient Ford/ABRP outage must not restart-loop the
-    // container. A failure to write it (e.g. read-only mount) must likewise
-    // never take the host down; BackgroundService's default exception
-    // behavior stops the whole host on an unhandled exception here.
-    private void TouchHeartbeatSafely()
+    // container. The deadline scales with the upcoming wait so an Idle-paced
+    // loop isn't flagged unhealthy between polls. A failure to write it (e.g.
+    // read-only mount) must likewise never take the host down;
+    // BackgroundService's default exception behavior stops the whole host on
+    // an unhandled exception here.
+    private void TouchHeartbeatSafely(TimeSpan interval)
     {
         try
         {
-            heartbeat.Touch(DateTimeOffset.UtcNow, syncOptions.CurrentValue.Interval);
+            heartbeat.Touch(DateTimeOffset.UtcNow, interval);
         }
         catch (Exception ex)
         {
@@ -90,6 +131,8 @@ internal sealed class SyncWorker(
             logger.LogWarning("Ford returned an empty telemetry response; skipping.");
             return;
         }
+
+        _isIdle = IdleDetector.IsIdle(snapshot);
 
         var telemetry = AbrpTelemetryMapper.Map(snapshot, options.InvertPowerSign);
         var decision = decider.Decide(snapshot.UpdateTime, telemetry);

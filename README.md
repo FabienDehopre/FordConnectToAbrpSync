@@ -34,6 +34,30 @@ Each **Sync Cycle** (default every 60 s, configurable and hot-reloadable):
    charging, DC-fast-charging, parked) changed beyond noise tolerances since the
    last successful relay.
 
+### Idle pacing & Wake/Sleep Signals
+
+When a snapshot shows the vehicle **Idle** (ignition `OFF` and no charge in
+progress), the loop stretches its wait to `Sync:IdleInterval` (default 30 min)
+— a parked car produces nothing worth polling for. Any ambiguous reading
+(`UNKNOWN`, `ACCESSORY`, missing metric) or an active charging session keeps
+the normal pace.
+
+To avoid waiting out an idle interval when a drive starts, the Run mode
+listens on two authenticated HTTP endpoints (port 8080 in Docker):
+
+- `POST /wake` — runs a Sync Cycle immediately and holds the normal interval
+  for a **Boost Window** (`Sync:BoostWindow`, default 10 min), covering the
+  lag before Ford's cloud reports the ignition on.
+- `POST /sleep` — ends any Boost Window and re-evaluates immediately. It never
+  forces slow polling: if the cycle still sees the ignition on (e.g. a
+  Bluetooth drop mid-drive), the normal pace continues.
+
+Both require `Authorization: Bearer <Signal:Secret>`; with no secret
+configured they refuse every request. See
+[ADR 0007](./docs/adr/0007-idle-pacing-with-external-wake-sleep-signals.md)
+and [Signals from your iPhone](#signals-from-your-iphone) for the phone-side
+setup.
+
 ## Configuration
 
 Non-secret settings live in [`appsettings.json`](./FordConnectToAbrpSync/appsettings.json).
@@ -45,8 +69,10 @@ Secrets must come from user-secrets (dev) or environment variables (prod):
 | `Ford:ClientSecret` | `Ford__ClientSecret` | Ford app-registration client secret |
 | `Abrp:ApiKey` | `Abrp__ApiKey` | ABRP partner API key |
 | `Abrp:Token` | `Abrp__Token` | ABRP per-vehicle user token |
+| `Signal:Secret` | `Signal__Secret` | Bearer secret for the /wake and /sleep endpoints |
 
 Useful non-secret overrides: `Sync:Interval` (e.g. `00:00:30`),
+`Sync:IdleInterval` / `Sync:BoostWindow` (Idle pacing, see above),
 `Sync:InvertPowerSign` (flip if charge/discharge power sign is reversed),
 `Ford:ApplicationId` (if your Ford app requires the `Application-Id` header).
 
@@ -104,6 +130,25 @@ The container mounts `./data` for the token + key ring and `./logs` for the log
 files, and reads secrets from the environment. Because the `login` flow needs
 an interactive browser and a loopback redirect, run it on the host as shown;
 the container only ever runs the headless sync.
+
+### Signals from your iPhone
+
+Expose port 8080 through a Cloudflare tunnel (or any reverse proxy), then let
+iOS fire the Signals automatically:
+
+1. In **Shortcuts**, create a shortcut "Ford Sync Wake" with a single **Get
+   Contents of URL** action: URL `https://<your-tunnel-host>/wake`, Method
+   `POST`, and a header `Authorization` = `Bearer <your SIGNAL_SECRET>`.
+2. Duplicate it as "Ford Sync Sleep" pointing at `/sleep`.
+3. Under **Automation → New Personal Automation → CarPlay** (or **Bluetooth**
+   with your car's audio system selected): *When CarPlay connects* → run "Ford
+   Sync Wake"; *disconnects* → run "Ford Sync Sleep". Choose **Run
+   Immediately** (iOS 17+) so no confirmation tap is needed.
+
+Sitting down in the car then restores 60 s polling within seconds, and parking
+drops back to the idle pace without waiting out the Boost Window. If a signal
+never arrives (passenger drive, dead phone, tunnel down), the worker still
+notices the ignition by itself within one `Sync:IdleInterval`.
 
 ## Troubleshooting
 

@@ -64,3 +64,33 @@ _Avoid_: auth, sign-in, connect
 The headless, ongoing mode of the worker that performs Sync Cycles. Never
 prompts interactively; refuses to start if no Login has happened.
 _Avoid_: start, serve
+
+**Idle**:
+The vehicle condition — ignition off and no charging in progress — in which
+Snapshots stop changing and the worker polls at the slower Idle Interval.
+Any other ignition reading (including unknown) or an active charge counts as
+not Idle.
+_Avoid_: parked, asleep, inactive
+
+**Idle Interval**:
+The stretched poll cadence used while the vehicle is Idle. The normal poll
+interval resumes as soon as the vehicle is no longer Idle or a Wake Signal
+arrives.
+_Avoid_: slow interval, sleep interval
+
+**Wake Signal**:
+An external nudge from the driver's phone announcing the vehicle is about to
+be used. Triggers an immediate Sync Cycle and opens a Boost Window.
+_Avoid_: ping, trigger, webhook
+
+**Sleep Signal**:
+An external nudge from the driver's phone suggesting the vehicle is done being
+used. Closes any open Boost Window and triggers an immediate Sync Cycle for
+re-evaluation; never forces the Idle Interval by itself.
+_Avoid_: stop, pause
+
+**Boost Window**:
+The bounded period after a Wake Signal during which the worker keeps the
+normal poll interval even while the vehicle still reports Idle — cover for the
+lag between sitting down in the car and Ford's cloud noticing.
+_Avoid_: grace period, override

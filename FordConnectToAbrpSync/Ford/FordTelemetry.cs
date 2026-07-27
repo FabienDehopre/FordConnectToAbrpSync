@@ -30,6 +30,9 @@ internal sealed record FordMetrics
     public ChargeDisplayMetric? XevBatteryChargeDisplayStatus { get; init; }
     public StringMetric? XevChargeStationPowerType { get; init; }
     public StringMetric? GearLeverPosition { get; init; }
+
+    /// <summary>UNKNOWN | OFF | ACCESSORY | ON | UNRECOGNIZED — drives Idle detection.</summary>
+    public StringMetric? IgnitionStatus { get; init; }
 }
 
 internal sealed record ScalarMetric
