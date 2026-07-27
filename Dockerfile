@@ -31,6 +31,12 @@ ENV Ford__TokenFilePath=/data/ford-token.json \
     DOTNET_ENVIRONMENT=Production
 VOLUME /data
 
+# Wake/Sleep Signal endpoints (Run mode). Reached from the driver's phone via
+# a Cloudflare tunnel pointed at this port; requests must carry the
+# Signal__Secret bearer token or they are rejected.
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
+
 # Rolling log files (Run mode) are written to ./logs relative to WORKDIR.
 VOLUME /app/logs
 

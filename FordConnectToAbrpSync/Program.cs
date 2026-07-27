@@ -4,10 +4,13 @@ using FordConnectToAbrpSync.Ford;
 using FordConnectToAbrpSync.Health;
 using FordConnectToAbrpSync.Security;
 using FordConnectToAbrpSync.Sync;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Serilog.Events;
@@ -53,7 +56,10 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    var builder = Host.CreateApplicationBuilder(args);
+    // Slim web builder instead of a plain host: Run mode serves the Wake/Sleep
+    // Signal endpoints on Kestrel (see ADR 0007). Login/test/healthcheck never
+    // start the server — Kestrel only spins up when app.Run() is reached.
+    var builder = WebApplication.CreateSlimBuilder(args);
 
     var isLogin = args.Length > 0 && string.Equals(args[0], "login", StringComparison.OrdinalIgnoreCase);
     var isTest = args.Length > 0 && string.Equals(args[0], "test", StringComparison.OrdinalIgnoreCase);
@@ -97,6 +103,7 @@ try
     builder.Services.Configure<SyncOptions>(builder.Configuration.GetSection(SyncOptions.SectionName));
     builder.Services.Configure<FordOptions>(builder.Configuration.GetSection(FordOptions.SectionName));
     builder.Services.Configure<AbrpOptions>(builder.Configuration.GetSection(AbrpOptions.SectionName));
+    builder.Services.Configure<SignalOptions>(builder.Configuration.GetSection(SignalOptions.SectionName));
 
     var fordOptions = builder.Configuration.GetSection(FordOptions.SectionName).Get<FordOptions>() ?? new FordOptions();
 
@@ -112,6 +119,7 @@ try
     // --- Change detection --------------------------------------------------
     builder.Services.AddSingleton(sp => sp.GetRequiredService<IOptions<SyncOptions>>().Value.Tolerances);
     builder.Services.AddSingleton<SyncDecider>();
+    builder.Services.AddSingleton<SyncPacer>();
 
     // --- Ford auth ---------------------------------------------------------
     builder.Services.AddSingleton<FordTokenService>();
@@ -142,21 +150,63 @@ try
         builder.Services.AddHostedService<SyncWorker>();
     }
 
-    using var host = builder.Build();
+    using var app = builder.Build();
 
     if (isLogin)
     {
-        var login = host.Services.GetRequiredService<LoginCommand>();
+        var login = app.Services.GetRequiredService<LoginCommand>();
         return await login.RunAsync(CancellationToken.None);
     }
 
     if (isTest)
     {
-        var test = host.Services.GetRequiredService<TestCommand>();
+        var test = app.Services.GetRequiredService<TestCommand>();
         return await test.RunAsync(CancellationToken.None);
     }
 
-    host.Run();
+    // --- Wake/Sleep Signal endpoints (Run mode only) -----------------------
+    // Reachable from the driver's phone via a Cloudflare tunnel. Auth is a
+    // bearer secret checked in-app so the endpoints stay closed even if the
+    // tunnel config drifts. Handlers stay thin: all pacing behavior lives in
+    // SyncPacer, which is what the tests cover (Program.cs is excluded).
+    if (app.Services.GetRequiredService<IOptions<SignalOptions>>().Value.Secret is null or "")
+    {
+        app.Logger.LogWarning(
+            "Signal:Secret is not configured; the /wake and /sleep endpoints will refuse every request.");
+    }
+
+    app.MapPost("/wake", (
+        HttpRequest request,
+        SyncPacer pacer,
+        IOptions<SignalOptions> signal,
+        IOptionsMonitor<SyncOptions> sync) =>
+    {
+        if (!SignalAuthenticator.IsAuthorized(signal.Value.Secret, request.Headers.Authorization))
+        {
+            return Results.Unauthorized();
+        }
+
+        pacer.Wake(DateTimeOffset.UtcNow, sync.CurrentValue.BoostWindow);
+        app.Logger.LogInformation("Wake Signal received; Boost Window opened.");
+        return Results.NoContent();
+    });
+
+    app.MapPost("/sleep", (
+        HttpRequest request,
+        SyncPacer pacer,
+        IOptions<SignalOptions> signal) =>
+    {
+        if (!SignalAuthenticator.IsAuthorized(signal.Value.Secret, request.Headers.Authorization))
+        {
+            return Results.Unauthorized();
+        }
+
+        pacer.Sleep();
+        app.Logger.LogInformation("Sleep Signal received; Boost Window closed.");
+        return Results.NoContent();
+    });
+
+    app.Run();
     return 0;
 }
 catch (Exception ex)

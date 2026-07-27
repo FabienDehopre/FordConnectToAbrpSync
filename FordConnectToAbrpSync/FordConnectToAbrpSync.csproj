@@ -1,4 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+<!-- Web SDK (not Worker): the Run mode hosts the Wake/Sleep Signal endpoints
+     on Kestrel via WebApplication.CreateSlimBuilder. See ADR 0007. -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -15,8 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="10.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.10" />
+    <!-- DataProtection and Extensions.Hosting come with the Web SDK's shared framework. -->
     <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="10.8.0" />
     <PackageReference Include="Serilog" Version="4.4.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="10.0.0" />
