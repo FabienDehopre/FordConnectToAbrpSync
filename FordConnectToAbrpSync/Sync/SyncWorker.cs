@@ -132,6 +132,7 @@ internal sealed class SyncWorker(
             return;
         }
 
+        logger.LogDebug("Data received from Ford Connect: {@Data}", snapshot);
         _isIdle = IdleDetector.IsIdle(snapshot);
 
         var telemetry = AbrpTelemetryMapper.Map(snapshot, options.InvertPowerSign);
