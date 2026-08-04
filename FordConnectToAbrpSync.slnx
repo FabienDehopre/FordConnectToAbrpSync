@@ -29,6 +29,7 @@
     <File Path="Dockerfile" />
     <File Path="global.json" />
     <File Path="README.md" />
+    <File Path="renovate.json" />
   </Folder>
   <Project Path="FordConnectToAbrpSync.Tests/FordConnectToAbrpSync.Tests.csproj" />
   <Project Path="FordConnectToAbrpSync/FordConnectToAbrpSync.csproj" />
