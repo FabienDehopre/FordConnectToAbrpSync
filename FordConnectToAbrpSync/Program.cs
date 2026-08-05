@@ -3,6 +3,7 @@ using FordConnectToAbrpSync.Configuration;
 using FordConnectToAbrpSync.Ford;
 using FordConnectToAbrpSync.Health;
 using FordConnectToAbrpSync.Security;
+using FordConnectToAbrpSync.Serialization;
 using FordConnectToAbrpSync.Sync;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -167,7 +168,9 @@ try
     // --- Health endpoint (Run mode only) ------------------------------------
     // Unauthenticated, unlike Wake/Sleep: just confirms the container is up
     // when hit manually (e.g. through the Cloudflare tunnel or docker exec curl).
-    app.MapGet("/healthz", () => Results.Ok());
+    app.MapGet("/healthz", () => Results.Json(
+        new HealthResponse("ok"),
+        AppJsonSerializerContext.Default.HealthResponse));
 
     // --- Wake/Sleep Signal endpoints (Run mode only) -----------------------
     // Reachable from the driver's phone via a Cloudflare tunnel. Auth is a
