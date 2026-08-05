@@ -168,8 +168,10 @@ try
     // --- Health endpoint (Run mode only) ------------------------------------
     // Unauthenticated, unlike Wake/Sleep: just confirms the container is up
     // when hit manually (e.g. through the Cloudflare tunnel or docker exec curl).
+    // SyncWorkerAlive reuses the same heartbeat file the `healthcheck`
+    // subcommand reads, so this reflects the same liveness signal Docker acts on.
     app.MapGet("/healthz", () => Results.Json(
-        new HealthResponse("ok"),
+        new HealthResponse("ok", HeartbeatCheck.Run(HeartbeatFilePath, DateTimeOffset.UtcNow)),
         AppJsonSerializerContext.Default.HealthResponse));
 
     // --- Wake/Sleep Signal endpoints (Run mode only) -----------------------
