@@ -1,3 +1,3 @@
 namespace FordConnectToAbrpSync.Health;
 
-internal sealed record HealthResponse(string Status, bool SyncWorkerAlive);
+internal sealed record HealthResponse(string Status);
