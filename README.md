@@ -183,3 +183,41 @@ dotnet run --project FordConnectToAbrpSync.Tests
 The worker publishes as a self-contained Native AOT binary
 (`PublishAot=true`). All JSON goes through a source-generated serializer context;
 there is no reflection-based serialization.
+
+### Publishing images
+
+There is no CI job for this — images are built and pushed by hand from a
+machine with `docker buildx` and login to both registries:
+
+```bash
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  --tag fabiendehopre/ford-connect-to-abrp-sync:$(git rev-parse --short HEAD) \
+  --tag fabiendehopre/ford-connect-to-abrp-sync:latest \
+  --tag ghcr.io/fabiendehopre/ford-connect-to-abrp-sync:$(git rev-parse --short HEAD) \
+  --tag ghcr.io/fabiendehopre/ford-connect-to-abrp-sync:latest \
+  --push .
+```
+
+Every push is tagged with the short git sha it was built from (plus
+`latest`), so a running container can always be traced back to a commit —
+but that trace only works forward from the image. To go the other way and
+see which commits ever got published, each published sha also gets a
+lightweight `vN` marker, on both the commit and the image:
+
+```bash
+# next sequential version, e.g. v4
+git tag -a v4 <short-sha> -m "v4: docker image published"
+git push origin v4
+
+docker buildx imagetools create \
+  --tag fabiendehopre/ford-connect-to-abrp-sync:v4 \
+  fabiendehopre/ford-connect-to-abrp-sync:<short-sha>
+docker buildx imagetools create \
+  --tag ghcr.io/fabiendehopre/ford-connect-to-abrp-sync:v4 \
+  ghcr.io/fabiendehopre/ford-connect-to-abrp-sync:<short-sha>
+```
+
+`imagetools create` re-tags the existing multi-arch manifest list without
+rebuilding or re-pushing image layers. `git tag -l` (or the registry's tag
+list) then gives a quick map of every published release to its commit.
