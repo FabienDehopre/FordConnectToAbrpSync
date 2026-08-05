@@ -164,6 +164,11 @@ try
         return await test.RunAsync(CancellationToken.None);
     }
 
+    // --- Health endpoint (Run mode only) ------------------------------------
+    // Unauthenticated, unlike Wake/Sleep: just confirms the container is up
+    // when hit manually (e.g. through the Cloudflare tunnel or docker exec curl).
+    app.MapGet("/healthz", () => Results.Ok());
+
     // --- Wake/Sleep Signal endpoints (Run mode only) -----------------------
     // Reachable from the driver's phone via a Cloudflare tunnel. Auth is a
     // bearer secret checked in-app so the endpoints stay closed even if the
