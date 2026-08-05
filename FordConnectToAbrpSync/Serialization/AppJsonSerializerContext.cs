@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using FordConnectToAbrpSync.Abrp;
 using FordConnectToAbrpSync.Ford;
+using FordConnectToAbrpSync.Health;
 using FordConnectToAbrpSync.Security;
 
 namespace FordConnectToAbrpSync.Serialization;
@@ -18,4 +19,5 @@ namespace FordConnectToAbrpSync.Serialization;
 [JsonSerializable(typeof(AbrpSendResponse))]
 [JsonSerializable(typeof(StoredToken))]
 [JsonSerializable(typeof(FordTokenResponse))]
+[JsonSerializable(typeof(HealthResponse))]
 internal sealed partial class AppJsonSerializerContext : JsonSerializerContext;

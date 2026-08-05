@@ -3,6 +3,7 @@ using FordConnectToAbrpSync.Configuration;
 using FordConnectToAbrpSync.Ford;
 using FordConnectToAbrpSync.Health;
 using FordConnectToAbrpSync.Security;
+using FordConnectToAbrpSync.Serialization;
 using FordConnectToAbrpSync.Sync;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -163,6 +164,15 @@ try
         var test = app.Services.GetRequiredService<TestCommand>();
         return await test.RunAsync(CancellationToken.None);
     }
+
+    // --- Health endpoint (Run mode only) ------------------------------------
+    // Unauthenticated, unlike Wake/Sleep: just confirms the container is up
+    // when hit manually (e.g. through the Cloudflare tunnel or docker exec curl).
+    // Status reuses the same heartbeat file the `healthcheck` subcommand reads,
+    // so this reflects the same liveness signal Docker acts on.
+    app.MapGet("/healthz", () => Results.Json(
+        new HealthResponse(HeartbeatCheck.Run(HeartbeatFilePath, DateTimeOffset.UtcNow) ? "ok" : "failed"),
+        AppJsonSerializerContext.Default.HealthResponse));
 
     // --- Wake/Sleep Signal endpoints (Run mode only) -----------------------
     // Reachable from the driver's phone via a Cloudflare tunnel. Auth is a
