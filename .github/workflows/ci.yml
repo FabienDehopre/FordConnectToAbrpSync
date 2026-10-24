@@ -52,6 +52,9 @@ jobs:
         env:
           TUNIT_GITHUB_REPORTER_STYLE: collapsible
           
+      - name: CRAP report
+        uses: FabienDehopre/crap-gate/backend@v1
+
       - name: Generate coverage report
         uses: danielpalme/ReportGenerator-GitHub-Action@d3ebf1f760f7d8ab92cc44d9bcfee7ad73722a31 # v5
         id: reportgenerator
