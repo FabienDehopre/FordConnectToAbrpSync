@@ -60,14 +60,11 @@ internal sealed class SyncWorker(
         }
     }
 
-    // The Idle Interval only applies when the vehicle is Idle and no Boost
-    // Window is open. A failed cycle keeps the last known state, so a Ford
-    // outage while driving doesn't stretch the poll to the Idle Interval.
+    // A failed cycle keeps the last known Idle state, so a Ford outage while
+    // driving doesn't stretch the poll to the Idle Interval.
     private TimeSpan NextWait()
     {
-        var options = syncOptions.CurrentValue;
-        var idlePace = _isIdle && !pacer.IsBoosted(DateTimeOffset.UtcNow);
-        var wait = idlePace ? options.IdleInterval : options.Interval;
+        var (wait, idlePace) = pacer.SelectWait(_isIdle, syncOptions.CurrentValue, DateTimeOffset.UtcNow);
 
         if (wait != _lastWait)
         {
@@ -138,24 +135,13 @@ internal sealed class SyncWorker(
         var telemetry = AbrpTelemetryMapper.Map(snapshot, options.InvertPowerSign);
         var decision = decider.Decide(snapshot.UpdateTime, telemetry);
 
-        switch (decision)
+        if (decision != SyncDecision.Relay)
         {
-            case SyncDecision.SkipStale:
-                logger.LogDebug("Snapshot unchanged since last fetch (stale); skipping.");
-                return;
-
-            case SyncDecision.SkipNotWorthwhile:
-                logger.LogDebug("Snapshot has neither charge nor position; skipping.");
-                return;
-
-            case SyncDecision.SkipNoChange:
-                logger.LogDebug("No meaningful change since last relay; skipping.");
-                return;
-
-            case SyncDecision.Relay:
-                await RelayAsync(telemetry, cancellationToken);
-                return;
+            logger.LogDebug("Skipping Sync Cycle: {Decision}.", decision);
+            return;
         }
+
+        await RelayAsync(telemetry, cancellationToken);
     }
 
     private async Task RelayAsync(AbrpTelemetry telemetry, CancellationToken cancellationToken)
