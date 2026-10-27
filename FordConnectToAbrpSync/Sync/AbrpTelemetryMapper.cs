@@ -30,42 +30,46 @@ internal static class AbrpTelemetryMapper
             return new AbrpTelemetry { Utc = utc };
         }
 
+        var location = m.Position?.Value?.Location;
+
         return new AbrpTelemetry
         {
             Utc = utc,
-            Soc = m.XevBatteryStateOfCharge?.Value,
-            Soe = m.XevBatteryEnergyRemaining?.Value,
+            Soc = ValueOf(m.XevBatteryStateOfCharge),
+            Soe = ValueOf(m.XevBatteryEnergyRemaining),
             Power = ComputePower(m, invertPowerSign),
-            Speed = m.Speed?.Value,
-            Lat = m.Position?.Value?.Location?.Lat,
-            Lon = m.Position?.Value?.Location?.Lon,
-            Elevation = MapElevation(m),
+            Speed = ValueOf(m.Speed),
+            Lat = location?.Lat,
+            Lon = location?.Lon,
+            Elevation = MapElevation(location),
             IsCharging = MapIsCharging(m),
             IsDcfc = MapIsDcfc(m),
             IsParked = MapIsParked(m),
-            Capacity = m.XevBatteryCapacity?.Value,
-            EstBatteryRange = m.XevBatteryRange?.Value,
-            ExtTemp = m.OutsideTemperature?.Value,
-            BattTemp = m.XevBatteryTemperature?.Value,
-            Voltage = m.XevBatteryVoltage?.Value,
-            Current = m.XevBatteryIoCurrent?.Value,
-            Odometer = m.Odometer?.Value,
+            Capacity = ValueOf(m.XevBatteryCapacity),
+            EstBatteryRange = ValueOf(m.XevBatteryRange),
+            ExtTemp = ValueOf(m.OutsideTemperature),
+            BattTemp = ValueOf(m.XevBatteryTemperature),
+            Voltage = ValueOf(m.XevBatteryVoltage),
+            Current = ValueOf(m.XevBatteryIoCurrent),
+            Odometer = ValueOf(m.Odometer),
             Heading = m.Heading?.Value?.Heading,
         };
     }
 
+    private static double? ValueOf(ScalarMetric? metric) => metric?.Value;
+
     // Ford reports alt 0.0 when the GPS altitude is unavailable, not sea level.
     // Treat exactly 0.0 as absent so ABRP doesn't record a bogus elevation.
-    private static double? MapElevation(FordMetrics m)
+    private static double? MapElevation(LocationValue? location)
     {
-        var alt = m.Position?.Value?.Location?.Alt;
+        var alt = location?.Alt;
         return alt is null or 0.0 ? null : alt;
     }
 
     private static double? ComputePower(FordMetrics m, bool invert)
     {
-        var v = m.XevBatteryVoltage?.Value;
-        var i = m.XevBatteryIoCurrent?.Value;
+        var v = ValueOf(m.XevBatteryVoltage);
+        var i = ValueOf(m.XevBatteryIoCurrent);
         if (v is null || i is null)
         {
             return null;

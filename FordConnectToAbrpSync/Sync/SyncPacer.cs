@@ -1,3 +1,5 @@
+using FordConnectToAbrpSync.Configuration;
+
 namespace FordConnectToAbrpSync.Sync;
 
 /// <summary>
@@ -41,6 +43,17 @@ internal sealed class SyncPacer
         {
             return now < _boostUntil;
         }
+    }
+
+    /// <summary>
+    /// The wait before the next Sync Cycle. The Idle Interval only applies when
+    /// the vehicle is Idle and no Boost Window is open; otherwise the normal
+    /// interval.
+    /// </summary>
+    public (TimeSpan Wait, bool IdlePace) SelectWait(bool isIdle, SyncOptions options, DateTimeOffset now)
+    {
+        var idlePace = isIdle && !IsBoosted(now);
+        return (idlePace ? options.IdleInterval : options.Interval, idlePace);
     }
 
     /// <summary>
